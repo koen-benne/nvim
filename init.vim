@@ -1,6 +1,8 @@
 " >> load plugins
 call plug#begin(stdpath('data') . 'vimplug')
     Plug 'nvim-lua/plenary.nvim'
+    Plug 'dominikduda/vim_current_word'
+    Plug 'jiangmiao/auto-pairs'
     Plug 'ryanoasis/vim-devicons'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope.nvim'
@@ -11,12 +13,16 @@ call plug#begin(stdpath('data') . 'vimplug')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
+    Plug 'psliwka/vim-smoothie'
+
     Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
     Plug 'kyazdani42/nvim-web-devicons'  " needed for galaxyline icons
 
     Plug 'doums/darcula'
     Plug 'nikvdp/neomux'
 
+    Plug 'justinmk/vim-dirvish'
+    
     Plug 'tpope/vim-ragtag'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-unimpaired'
@@ -26,6 +32,13 @@ call plug#begin(stdpath('data') . 'vimplug')
 
     Plug 'tomtom/tcomment_vim'
 call plug#end()
+
+
+" disable netrw
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
+let g:dirvish_git_show_ignored = 1
 
 
 colorscheme darcula
@@ -46,13 +59,17 @@ set shiftwidth=4
 set hlsearch
 set virtualedit=all
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set autoindent
+set autoindent      
+set nowrap
 " set mouse=a  " mouse support
-
 
 " set leader key to ,
 let g:mapleader=","
 
+" resizing windows
+nnoremap <silent> <C-]> <cmd>:vertical resize +5<CR>
+nnoremap <silent> <C-[> <cmd>:vertical resize -5<CR>
+                                                
 " >> Telescope bindings
 nnoremap <Leader>pp <cmd>lua require'telescope.builtin'.builtin{}<CR>
 
@@ -91,7 +108,6 @@ nnoremap <Leader>ci <cmd>call NERDComment('n', 'toggle')<CR>
 
 " >> Lsp key bindings
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> <C-]> <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gi    <cmd>lua vim.lsp.buf.implementation()<CR>
@@ -104,7 +120,6 @@ nnoremap <silent> gn    <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> ga    <cmd>Lspsaga code_action<CR>
 xnoremap <silent> ga    <cmd>Lspsaga range_code_action<CR>
 nnoremap <silent> gs    <cmd>Lspsaga signature_help<CR>
-
 lua <<EOF
 require("lsp")
 require("treesitter")
