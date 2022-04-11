@@ -18,7 +18,8 @@ call plug#begin(stdpath('data') . 'vimplug')
     Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
     Plug 'kyazdani42/nvim-web-devicons'  " needed for galaxyline icons
 
-    Plug 'doums/darcula'
+    Plug 'haishanh/night-owl.vim'
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     Plug 'nikvdp/neomux'
 
     Plug 'justinmk/vim-dirvish'
@@ -31,6 +32,8 @@ call plug#begin(stdpath('data') . 'vimplug')
     Plug 'tpope/vim-fugitive'
 
     Plug 'tomtom/tcomment_vim'
+
+    Plug 'xiyaowong/nvim-transparent'
 call plug#end()
 
 
@@ -40,8 +43,11 @@ let g:loaded_netrwPlugin = 1
 
 let g:dirvish_git_show_ignored = 1
 
-
-colorscheme darcula
+let g:tokyonight_style = "night"
+let g:tokyonight_transparent = v:true
+let g:tokyonight_transparent_sidebar = v:true
+colorscheme tokyonight
+:highlight LineNr guifg=#bf00ff
 
 " basic settings
 syntax on
@@ -125,4 +131,5 @@ require("lsp")
 require("treesitter")
 require("statusbar")
 require("completion")
+require("transparent")
 EOF
