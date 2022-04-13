@@ -3,26 +3,48 @@ call plug#begin(stdpath('data') . 'vimplug')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'dominikduda/vim_current_word'
     Plug 'jiangmiao/auto-pairs'
+
+    Plug 'kyazdani42/nvim-web-devicons'  " So many plugins need this it's crazy
+
+     " requires
+    Plug 'kyazdani42/nvim-tree.lua'
+
+    " Cool and also sick icons
     Plug 'ryanoasis/vim-devicons'
+
     Plug 'nvim-lua/popup.nvim'
+
+    " Fuzzy finder
     Plug 'nvim-telescope/telescope.nvim'
+    
+    " LSP Tingz
     Plug 'neovim/nvim-lspconfig'
     Plug 'kabouzeid/nvim-lspinstall'
     Plug 'glepnir/lspsaga.nvim'
-    Plug 'hrsh7th/nvim-compe'
+
+    " Autocompletion
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/nvim-cmp'
+
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
-    Plug 'psliwka/vim-smoothie'
+    " Bottom bar, it's called a line apparently
+    Plug 'nvim-lualine/lualine.nvim'
 
-    Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
-    Plug 'kyazdani42/nvim-web-devicons'  " needed for galaxyline icons
+    " Tagz
+    Plug 'preservim/tagbar'
+    Plug 'universal-ctags/ctags'
 
+    " Bunch of themes including ones i don't use
     Plug 'haishanh/night-owl.vim'
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     Plug 'nikvdp/neomux'
 
     Plug 'justinmk/vim-dirvish'
+    Plug 'kristijanhusak/vim-dirvish-git'
     
     Plug 'tpope/vim-ragtag'
     Plug 'tpope/vim-surround'
@@ -111,6 +133,8 @@ let g:NERDSpaceDelims = 1
 xnoremap <Leader>ci <cmd>call NERDComment('n', 'toggle')<CR>
 nnoremap <Leader>ci <cmd>call NERDComment('n', 'toggle')<CR>
 
+" >> nvim nvim-tree
+nnoremap <C-t> :NvimTreeToggle<CR>
 
 " >> Lsp key bindings
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
@@ -132,4 +156,5 @@ require("treesitter")
 require("statusbar")
 require("completion")
 require("transparent")
+require("filetree")
 EOF
