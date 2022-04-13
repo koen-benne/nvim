@@ -38,7 +38,7 @@ cmp.setup({
         -- for emoji press : (idk if that in compe tho)
     }
 })
- 
+
 -- Idk what these do so i keep em here i guess..
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)

@@ -16,7 +16,7 @@
       }
     },
     textobjects = {
-      -- These are provided by 
+      -- These are provided by
       select = {
         enable = true,  -- you can also use a table with list of langs here (e.g. { "python", "javascript" })
         keymaps = {

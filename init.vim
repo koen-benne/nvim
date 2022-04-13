@@ -16,7 +16,7 @@ call plug#begin(stdpath('data') . 'vimplug')
 
     " Fuzzy finder
     Plug 'nvim-telescope/telescope.nvim'
-    
+
     " LSP Tingz
     Plug 'neovim/nvim-lspconfig'
     Plug 'kabouzeid/nvim-lspinstall'
@@ -38,6 +38,15 @@ call plug#begin(stdpath('data') . 'vimplug')
     Plug 'preservim/tagbar'
     Plug 'universal-ctags/ctags'
 
+    " Rainbow brackets
+    Plug 'luochen1990/rainbow'
+
+    " Handy stuff for changing brackets with cs
+    Plug 'tpope/vim-surround'
+
+    " So that I can see where white spaces are
+    Plug 'ntpeters/vim-better-whitespace'
+
     " Bunch of themes including ones i don't use
     Plug 'haishanh/night-owl.vim'
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
@@ -45,7 +54,7 @@ call plug#begin(stdpath('data') . 'vimplug')
 
     Plug 'justinmk/vim-dirvish'
     Plug 'kristijanhusak/vim-dirvish-git'
-    
+
     Plug 'tpope/vim-ragtag'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-unimpaired'
@@ -58,6 +67,8 @@ call plug#begin(stdpath('data') . 'vimplug')
     Plug 'xiyaowong/nvim-transparent'
 call plug#end()
 
+" Enable rainbow brackets
+let g:rainbow_active = 1
 
 " disable netrw
 let g:loaded_netrw = 1
@@ -87,7 +98,7 @@ set shiftwidth=4
 set hlsearch
 set virtualedit=all
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set autoindent      
+set autoindent
 set nowrap
 " set mouse=a  " mouse support
 
@@ -97,7 +108,6 @@ let g:mapleader=","
 " resizing windows
 nnoremap <silent> <C-]> <cmd>:vertical resize +5<CR>
 nnoremap <silent> <C-[> <cmd>:vertical resize -5<CR>
-                                                
 " >> Telescope bindings
 nnoremap <Leader>pp <cmd>lua require'telescope.builtin'.builtin{}<CR>
 
