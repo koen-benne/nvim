@@ -52,9 +52,6 @@ call plug#begin(stdpath('data') . 'vimplug')
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     Plug 'nikvdp/neomux'
 
-    Plug 'justinmk/vim-dirvish'
-    Plug 'kristijanhusak/vim-dirvish-git'
-
     Plug 'tpope/vim-ragtag'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-unimpaired'
@@ -73,8 +70,6 @@ let g:rainbow_active = 1
 " disable netrw
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
-
-let g:dirvish_git_show_ignored = 1
 
 let g:tokyonight_style = "night"
 let g:tokyonight_transparent = v:true
@@ -96,7 +91,7 @@ set ruler
 set smartindent
 set shiftwidth=4
 set hlsearch
-set virtualedit=all
+" set virtualedit=all " This setting is weird it makes u able to move freely
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set autoindent
 set nowrap
@@ -145,6 +140,9 @@ nnoremap <Leader>ci <cmd>call NERDComment('n', 'toggle')<CR>
 
 " >> nvim nvim-tree
 nnoremap <C-t> :NvimTreeToggle<CR>
+
+" Make everything split to the right so that things make sense
+set splitbelow
 
 " >> Lsp key bindings
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
