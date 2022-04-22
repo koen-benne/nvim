@@ -5,6 +5,22 @@ end
 
 local tree_width = 40
 
+-- For integration with barbar
+local view = require"nvim-tree.view"
+local bufferline = require"bufferline.state"
+
+local _M = {}
+_M.toggle_tree = function()
+  if view.is_visible() then
+    bufferline.set_offset(0)
+    view.close()
+  else
+    bufferline.set_offset(tree_width)
+    nvim_tree.open()
+  end
+end
+
+
 nvim_tree.setup {
   auto_reload_on_write = true,
   disable_netrw = false,
@@ -29,8 +45,8 @@ nvim_tree.setup {
     mappings = {
       custom_only = false,
       list = {
-        -- user mappings go here
-      },
+        { key = "<C-t>",        action = "" },
+      }
     },
   },
   renderer = {
@@ -112,20 +128,5 @@ nvim_tree.setup {
     },
   },
 } -- END_DEFAULT_OPTS
-
--- For integration with barbar
-local view = require"nvim-tree.view"
-local bufferline = require"bufferline.state"
-
-local _M = {}
-_M.toggle_tree = function()
-  if view.is_visible() then
-    bufferline.set_offset(0)
-    view.close()
-  else
-    bufferline.set_offset(tree_width)
-    nvim_tree.open()
-  end
-end
 
 return _M
