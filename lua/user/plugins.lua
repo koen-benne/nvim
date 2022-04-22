@@ -53,6 +53,9 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope.nvim" -- One of the best plugins ever
   use "nvim-telescope/telescope-media-files.nvim"
 
+  -- Epic bar
+  use "romgrk/barbar.nvim"
+
   -- LSP tingz
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"

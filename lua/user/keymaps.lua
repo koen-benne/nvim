@@ -80,5 +80,5 @@ keymap("", "<Leader>rg", "<cmd>lua require'telescope.builtin'.live_grep{}<CR>", 
 keymap("", "<Leader>cs", "<cmd>lua require'telescope.builtin'.colorscheme{}<CR>", opts)
 
 -- NVIM Tree --
-keymap("", "<C-t>", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<C-t>", "<cmd>lua require'user.nvim-tree'.toggle_tree()<CR>", opts)
 

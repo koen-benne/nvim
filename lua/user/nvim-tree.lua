@@ -3,6 +3,8 @@ if not status_ok then
   return
 end
 
+local tree_width = 40
+
 nvim_tree.setup {
   auto_reload_on_write = true,
   disable_netrw = false,
@@ -17,7 +19,7 @@ nvim_tree.setup {
   sort_by = "name",
   update_cwd = false,
   view = {
-    width = 40,
+    width = tree_width,
     height = 30,
     side = "left",
     preserve_window_proportions = false,
@@ -110,3 +112,20 @@ nvim_tree.setup {
     },
   },
 } -- END_DEFAULT_OPTS
+
+-- For integration with barbar
+local view = require"nvim-tree.view"
+local bufferline = require"bufferline.state"
+
+local _M = {}
+_M.toggle_tree = function()
+  if view.is_visible() then
+    bufferline.set_offset(0)
+    view.close()
+  else
+    bufferline.set_offset(tree_width)
+    nvim_tree.open()
+  end
+end
+
+return _M
