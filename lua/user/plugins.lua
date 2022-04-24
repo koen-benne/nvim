@@ -119,6 +119,8 @@ return packer.startup(function(use)
   use "tpope/vim-eunuch"
   use "tpope/vim-fugitive"
 
+  use "norcalli/nvim-colorizer.lua"
+
   -- Commmenting
   use 'numToStr/Comment.nvim'
   use "JoosepAlviste/nvim-ts-context-commentstring"

@@ -10,4 +10,5 @@ require "user.treesitter"
 require "user.toggleterm"
 require "user.autopairs"
 require "user.comment"
+require "user.nvim-colorizer"
 
