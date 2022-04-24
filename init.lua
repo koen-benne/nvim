@@ -7,5 +7,7 @@ require "user.cmp"
 require "user.lsp"
 require "user.nvim-tree"
 require "user.treesitter"
-require("user.toggleterm")
+require "user.toggleterm"
+require "user.autopairs"
+require "user.comment"
 
