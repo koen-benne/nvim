@@ -57,6 +57,9 @@ return packer.startup(function(use)
   -- Epic bar
   use "romgrk/barbar.nvim"
 
+  -- Tab guide
+  use "lukas-reineke/indent-blankline.nvim"
+
   -- LSP tingz
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
@@ -111,7 +114,7 @@ return packer.startup(function(use)
   -- Themes
   use "haishanh/night-owl.vim"
   use "folke/tokyonight.nvim"
-  use "nikvdp/neomux"
+  use "mangeshrex/everblush.vim"
 
   use "tpope/vim-ragtag"
   use "tpope/vim-unimpaired"

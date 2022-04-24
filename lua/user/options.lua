@@ -2,17 +2,16 @@ local options = {
     backup = false,
     clipboard = "unnamedplus",
     completeopt = { "menu", "menuone", "noselect" },		-- cmp stuff
-    mouse = "a",				                            -- allow mouse use
+    mouse = "a",				                                -- allow mouse use
     smartcase = true,
-    laststatus = 3,                                         -- Single statusline
     smartindent = true,
     number = true,
-    pumheight = 10,                                         -- pop up menu height
+    pumheight = 10,                                     -- pop up menu height
     incsearch = true,
     visualbell = true,
     showtabline = 2,
-    numberwidth = 2,                                        -- set number column width to 2 {default 4}
-    signcolumn = "yes",                                     -- always show the sign column to prevent shifting text
+    numberwidth = 2,                                    -- set number column width to 2 {default 4}
+    signcolumn = "yes",                                 -- always show the sign column to prevent shifting text
     expandtab = true,
     shiftwidth = 2,
     tabstop = 2,
@@ -27,6 +26,7 @@ local options = {
     splitbelow = true,
     splitright = true,
     termguicolors = true,
+    laststatus = 2,                                     -- Single statusline when set to 3
 }
 
 vim.opt.shortmess:append "c"

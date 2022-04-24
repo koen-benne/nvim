@@ -130,10 +130,20 @@ _G.packer_plugins = {
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/ctags",
     url = "https://github.com/universal-ctags/ctags"
   },
+  ["everblush.vim"] = {
+    loaded = true,
+    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/everblush.vim",
+    url = "https://github.com/mangeshrex/everblush.vim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lspsaga.nvim"] = {
     loaded = true,
@@ -144,11 +154,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  neomux = {
-    loaded = true,
-    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/neomux",
-    url = "https://github.com/nikvdp/neomux"
   },
   ["night-owl.vim"] = {
     loaded = true,
