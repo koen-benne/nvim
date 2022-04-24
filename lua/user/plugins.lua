@@ -48,6 +48,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons" -- Necessary for some plugins
   use "kyazdani42/nvim-tree.lua" -- Goated file tree plugin
   use "ryanoasis/vim-devicons" -- Idk if I need these...
+  use "akinsho/toggleterm.nvim" -- Terminal
 
   -- Telescope
   use "nvim-telescope/telescope.nvim" -- One of the best plugins ever
@@ -99,7 +100,7 @@ return packer.startup(function(use)
   use "universal-ctags/ctags"
 
   -- Rainbow brackets
-  use "luochen1990/rainbow"
+  use "p00f/nvim-ts-rainbow"
 
   -- Handy stuff for changing brakcets with cs
   use "tpope/vim-surround"
@@ -118,7 +119,9 @@ return packer.startup(function(use)
   use "tpope/vim-eunuch"
   use "tpope/vim-fugitive"
 
-  use "tomtom/tcomment_vim"
+  -- Commmenting
+  use 'numToStr/Comment.nvim'
+  use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

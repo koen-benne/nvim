@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -190,6 +195,16 @@ _G.packer_plugins = {
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
+  },
+  ["nvim-ts-rainbow"] = {
+    loaded = true,
+    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+    url = "https://github.com/p00f/nvim-ts-rainbow"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -210,20 +225,10 @@ _G.packer_plugins = {
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  rainbow = {
-    loaded = true,
-    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/rainbow",
-    url = "https://github.com/luochen1990/rainbow"
-  },
   tagbar = {
     loaded = true,
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/tagbar",
     url = "https://github.com/preservim/tagbar"
-  },
-  tcomment_vim = {
-    loaded = true,
-    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/tcomment_vim",
-    url = "https://github.com/tomtom/tcomment_vim"
   },
   ["telescope-media-files.nvim"] = {
     loaded = true,
@@ -234,6 +239,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
