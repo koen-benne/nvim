@@ -3,6 +3,7 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 local keymap = vim.api.nvim_set_keymap
+local setKeymap = vim.keymap.set
 
 -- Make space leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -29,6 +30,17 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+
+-- Switch between tab sizes 2 and 4
+setKeymap("n", "<leader>t", function()
+  if(vim.opt.shiftwidth:get() == 2) then
+    vim.opt.shiftwidth = 4
+    vim.opt.tabstop= 4
+  else
+    vim.opt.shiftwidth = 2
+    vim.opt.tabstop= 2
+  end
+end)
 
 -- Insert --
 -- Press jk fast to enter
@@ -68,7 +80,7 @@ keymap("", "<Leader>/", "<cmd>lua require'telescope.builtin'.current_buffer_fuzz
 keymap("", "<Leader>'", "<cmd>lua require'telescope.builtin'.marks{}<CR>", opts)
 
 -- git files
-keymap("", "<Leader>f", "<cmd>lua require'telescope.builtin'.git_files{}<CR>", opts)
+keymap("", "<Leader>g", "<cmd>lua require'telescope.builtin'.git_files{}<CR>", opts)
 
 -- all files
 keymap("", "<Leader>bfs", "<cmd>lua require'telescope.builtin'.find_files{}<CR>", opts)
