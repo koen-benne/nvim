@@ -15,7 +15,7 @@ _M.toggle_tree = function()
     bufferline.set_offset(0)
     view.close()
   else
-    bufferline.set_offset(tree_width)
+    bufferline.set_offset(tree_width, " File Explorer")
     nvim_tree.open()
   end
 end
