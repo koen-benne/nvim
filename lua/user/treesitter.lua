@@ -7,7 +7,7 @@ local ft_to_parser = require"nvim-treesitter.parsers".filetype_to_parsername
 ft_to_parser.motoko = "typescript"
 
 configs.setup {
-  ensure_installed = "maintained",
+  ensure_installed = "all",
   sync_install = false,
   ignore_install = { "" },
   highlight = {
@@ -16,6 +16,9 @@ configs.setup {
     additional_vim_regex_highlighting = true,
   },
   autopairs = {
+    enable = true,
+  },
+  autotag = {
     enable = true,
   },
   context_commentstring = {

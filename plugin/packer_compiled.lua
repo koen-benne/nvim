@@ -205,6 +205,11 @@ _G.packer_plugins = {
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
+  },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
