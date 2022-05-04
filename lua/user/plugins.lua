@@ -83,13 +83,11 @@ return packer.startup(function(use)
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
 
+  -- Debugging
+  use "mfussenegger/nvim-dap"
+
   -- Start screen
-  use {
-    'goolord/alpha-nvim',
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
-    end
-  }
+  use "goolord/alpha-nvim"
 
   -- Treesitter
   use {
