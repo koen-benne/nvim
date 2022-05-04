@@ -46,8 +46,8 @@ return packer.startup(function(use)
   use "dominikduda/vim_current_word"
   use "kyazdani42/nvim-web-devicons" -- Necessary for some plugins
   use "kyazdani42/nvim-tree.lua" -- Goated file tree plugin
-  use "ryanoasis/vim-devicons" -- Idk if I need these...
   use "akinsho/toggleterm.nvim" -- Terminal
+  use "folke/persistence.nvim"
 
   -- Auto stuff
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
@@ -62,6 +62,12 @@ return packer.startup(function(use)
 
   -- Tab guide
   use "lukas-reineke/indent-blankline.nvim"
+
+  -- Git stuff
+  use {
+  'lewis6991/gitsigns.nvim',
+  -- tag = 'release' -- To use the latest release
+  }
 
   -- LSP tingz
   use "neovim/nvim-lspconfig"

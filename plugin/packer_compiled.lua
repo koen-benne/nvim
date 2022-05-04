@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -234,6 +239,11 @@ _G.packer_plugins = {
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  ["persistence.nvim"] = {
+    loaded = true,
+    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/persistence.nvim",
+    url = "https://github.com/folke/persistence.nvim"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/plenary.nvim",
@@ -273,11 +283,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/vim-better-whitespace",
     url = "https://github.com/ntpeters/vim-better-whitespace"
-  },
-  ["vim-devicons"] = {
-    loaded = true,
-    path = "/Users/koenbenne/.local/share/nvim/site/pack/packer/start/vim-devicons",
-    url = "https://github.com/ryanoasis/vim-devicons"
   },
   ["vim-eunuch"] = {
     loaded = true,
