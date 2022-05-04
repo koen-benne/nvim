@@ -6,30 +6,30 @@ local keymap = vim.api.nvim_set_keymap
 local setKeymap = vim.keymap.set
 
 -- Make space leader key
-keymap("", "<Space>", "<Nop>", opts)
+setKeymap("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-keymap("n", "<C-e>", "<Nop>", opts)
+setKeymap("n", "<C-e>", "<Nop>")
 
 -- Normal mode --
 -- Window nav
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+setKeymap("n", "<C-h>", "<C-w>h")
+setKeymap("n", "<C-j>", "<C-w>j")
+setKeymap("n", "<C-k>", "<C-w>k")
+setKeymap("n", "<C-l>", "<C-w>l")
 
 -- Resize with arrows
-keymap("n", "<C-[>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-]>", ":vertical resize +2<CR>", opts)
+setKeymap("n", "<C-[>", ":vertical resize -2<CR>")
+setKeymap("n", "<C-]>", ":vertical resize +2<CR>")
 
 -- Naviagate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+setKeymap("n", "<S-l>", ":bnext<CR>")
+setKeymap("n", "<S-h>", ":bprevious<CR>")
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+setKeymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi")
+setKeymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi")
 
 -- Switch between tab sizes 2 and 4
 setKeymap("n", "<leader>t", function()
@@ -44,53 +44,53 @@ end)
 
 -- Insert --
 -- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
+setKeymap("i", "jk", "<ESC>")
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+setKeymap("v", "<", "<gv")
+setKeymap("v", ">", ">gv")
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
+setKeymap("v", "<A-j>", ":m .+1<CR>==")
+setKeymap("v", "<A-k>", ":m .-2<CR>==")
+setKeymap("v", "p", '"_dP')
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+setKeymap("x", "J", ":move '>+1<CR>gv-gv")
+setKeymap("x", "K", ":move '<-2<CR>gv-gv")
+setKeymap("x", "<A-j>", ":move '>+1<CR>gv-gv")
+setKeymap("x", "<A-k>", ":move '<-2<CR>gv-gv")
 
 -- Custom --
 -- Telescope --
-keymap("", "<Leader>pp", "<cmd>lua require'telescope.builtin'.builtin{}<CR>", opts)
+setKeymap("", "<Leader>pp", "<cmd>lua require'telescope.builtin'.builtin{}<CR>")
 
 -- most recently used files
-keymap("", "<Leader>m", "<cmd>lua require'telescope.builtin'.oldfiles{}<CR>", opts)
+setKeymap("", "<Leader>m", "<cmd>lua require'telescope.builtin'.oldfiles{}<CR>")
 
 -- find buffer
-keymap("", ";", "<cmd>lua require'telescope.builtin'.buffers{}<CR>", opts)
+setKeymap("", ";", "<cmd>lua require'telescope.builtin'.buffers{}<CR>")
 
 -- find in current buffer
-keymap("", "<Leader>/", "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>", opts)
+setKeymap("", "<Leader>/", "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>")
 
 -- bookmarks
-keymap("", "<Leader>'", "<cmd>lua require'telescope.builtin'.marks{}<CR>", opts)
+setKeymap("", "<Leader>'", "<cmd>lua require'telescope.builtin'.marks{}<CR>")
 
 -- git files
-keymap("", "<Leader>g", "<cmd>lua require'telescope.builtin'.git_files{}<CR>", opts)
+setKeymap("", "<Leader>g", "<cmd>lua require'telescope.builtin'.git_files{}<CR>")
 
 -- all files
-keymap("", "<Leader>bfs", "<cmd>lua require'telescope.builtin'.find_files{}<CR>", opts)
+setKeymap("", "<Leader>bfs", "<cmd>lua require'telescope.builtin'.find_files{}<CR>")
 
 -- ripgrep like grep through dir
-keymap("", "<Leader>rg", "<cmd>lua require'telescope.builtin'.live_grep{}<CR>", opts)
+setKeymap("", "<Leader>rg", "<cmd>lua require'telescope.builtin'.live_grep{}<CR>")
 
 -- pick color scheme
-keymap("", "<Leader>cs", "<cmd>lua require'telescope.builtin'.colorscheme{}<CR>", opts)
+setKeymap("", "<Leader>cs", "<cmd>lua require'telescope.builtin'.colorscheme{}<CR>")
 
 -- NVIM Tree --
-keymap("n", "<C-t>", "<cmd>lua require'user.nvim-tree'.toggle_tree()<CR>", opts)
+setKeymap("n", "<C-t>", "<cmd>lua require'user.nvim-tree'.toggle_tree()<CR>")
 
