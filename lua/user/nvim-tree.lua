@@ -5,20 +5,23 @@ end
 
 local tree_width = 40
 
--- For integration with barbar
-local view = require"nvim-tree.view"
-local bufferline = require"bufferline.state"
-
 local _M = {}
-_M.toggle_tree = function()
-  if view.is_visible() then
-    bufferline.set_offset(0)
-    view.close()
-  else
-    bufferline.set_offset(tree_width, " File Explorer")
-    nvim_tree.open()
+
+local status_ok, bufferline = pcall(require, "bufferline.state")
+if status_ok then
+  local view = require"nvim-tree.view"
+  -- @ToDo: Make bufferline shift on startupif nvim tree is opened on startup
+  _M.toggle_tree = function()
+    if view.is_visible() then
+      bufferline.set_offset(0)
+      view.close()
+    else
+      bufferline.set_offset(tree_width, " File Explorer")
+      nvim_tree.open()
+    end
   end
 end
+
 
 
 nvim_tree.setup {

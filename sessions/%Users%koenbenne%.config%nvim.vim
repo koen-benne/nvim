@@ -9,10 +9,16 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 let s:shortmess_save = &shortmess
 set shortmess=aoO
-badd +25 ~/.config/nvim/lua/user/options.lua
+badd +13 ~/.config/nvim/lua/user/nvim-tree.lua
+badd +1 ~/.config/nvim/lua/user/colorscheme.lua
+badd +1 ~/.config/nvim/lua/user/plugins/comment.lua
+badd +1 ~/.config/nvim/lua/user/plugins/indent-blankline.lua
+badd +19 ~/.config/nvim/init.lua
+badd +0 ~/.config/nvim/lua/user/plugins/nvim-colorizer.lua
+badd +1 ~/.config/nvim/lua/user/plugins/init.lua
 argglobal
 %argdel
-edit ~/.config/nvim/lua/user/options.lua
+edit ~/.config/nvim/lua/user/plugins/nvim-colorizer.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -26,11 +32,11 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-let s:l = 25 - ((24 * winheight(0) + 26) / 53)
+let s:l = 1 - ((0 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 25
+keepjumps 1
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -47,6 +53,7 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
