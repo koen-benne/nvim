@@ -1,3 +1,4 @@
+-- Requiring all the necessary plugin configuration files
 require "user.plugins.lualine"
 require "user.plugins.cmp"
 require "user.plugins.lsp"
