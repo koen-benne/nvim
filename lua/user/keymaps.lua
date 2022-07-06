@@ -18,6 +18,8 @@ setKeymap("n", "<C-h>", "<C-w>h")
 setKeymap("n", "<C-j>", "<C-w>j")
 setKeymap("n", "<C-k>", "<C-w>k")
 setKeymap("n", "<C-l>", "<C-w>l")
+setKeymap("n", "a", "A")
+setKeymap("n", "A", "a")
 
 -- Resize with arrows
 setKeymap("n", "<C-[>", ":vertical resize -2<CR>")
