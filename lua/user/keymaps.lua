@@ -68,31 +68,32 @@ setKeymap("x", "<A-k>", ":move '<-2<CR>gv-gv")
 -- Custom --
 -- Telescope --
 setKeymap("", "<Leader>pp", "<cmd>lua require'telescope.builtin'.builtin{}<CR>")
-
 -- most recently used files
 setKeymap("", "<Leader>m", "<cmd>lua require'telescope.builtin'.oldfiles{}<CR>")
-
 -- find buffer
 setKeymap("", ";", "<cmd>lua require'telescope.builtin'.buffers{}<CR>")
-
 -- find in current buffer
 setKeymap("", "<Leader>/", "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>")
-
 -- bookmarks
 setKeymap("", "<Leader>'", "<cmd>lua require'telescope.builtin'.marks{}<CR>")
-
 -- git files
 setKeymap("", "<Leader>g", "<cmd>lua require'telescope.builtin'.git_files{}<CR>")
-
 -- all files
 setKeymap("", "<Leader>bfs", "<cmd>lua require'telescope.builtin'.find_files{}<CR>")
-
 -- ripgrep like grep through dir
 setKeymap("", "<Leader>rg", "<cmd>lua require'telescope.builtin'.live_grep{}<CR>")
-
 -- pick color scheme
 setKeymap("", "<Leader>cs", "<cmd>lua require'telescope.builtin'.colorscheme{}<CR>")
 
 -- NVIM Tree --
 setKeymap("n", "<C-t>", "<cmd>lua require'user.plugins.nvim-tree'.toggle_tree()<CR>")
 
+-- Debugging --
+setKeymap("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>")
+setKeymap("n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>")
+setKeymap("n", "<F11>", "<cmd>lua require'dap'.step_into()<CR>")
+setKeymap("n", "<F12>", "<cmd>lua require'dap'.step_out()<CR>")
+setKeymap("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
+setKeymap("n", "<leader>B", "<cmd>lua require'dap'.set_breakpoint(vim.input('Breakpoint condition: '))<CR>")
+setKeymap("n", "<leader>lp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
+setKeymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>")

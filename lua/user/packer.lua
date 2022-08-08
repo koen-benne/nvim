@@ -91,6 +91,10 @@ return packer.startup(function(use)
 
   -- Debugging
   use "mfussenegger/nvim-dap"
+  use "leoluz/nvim-dap-go"
+  use "rcarriga/nvim-dap-ui"
+  use "theHamsta/nvim-dap-virtual-text"
+  use "nvim-telescope/telescope-dap.nvim"
 
   -- Start screen
   use "goolord/alpha-nvim"
@@ -112,7 +116,7 @@ return packer.startup(function(use)
   -- Rainbow brackets
   use "p00f/nvim-ts-rainbow"
 
-  -- Handy stuff for changing brakcets with cs
+  -- Handy stuff for changing brackets with cs
   use "tpope/vim-surround"
 
   -- So that I can see where whitespaces are

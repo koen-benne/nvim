@@ -13,4 +13,4 @@ require "user.plugins.alpha"
 require "user.plugins.persistence"
 require "user.plugins.gitsigns"
 require "user.plugins.nvim-web-devicons"
-
+require "user.plugins.nvim-dap"
