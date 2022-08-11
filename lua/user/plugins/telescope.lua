@@ -10,9 +10,40 @@ local icons = require("user.icons")
 telescope.setup {
   defaults = {
 
-    prompt_prefix = icons.ui.Telescope .. " ",
-    selection_caret = " ",
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+    },
+    prompt_prefix = icons.ui.ChevronRight .. " ",
+    selection_caret = icons.ui.Selected .. " ",
     path_display = { "smart" },
+    initial_mode = "insert",
+    election_strategy = "reset",
+    sorting_strategy = "ascending",
+    layout_strategy = "horizontal",
+    file_ignore_patterns = { "node_modules" },
+    border = {},
+    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+    color_devicons = true,
+    layout_config = {
+      horizontal = {
+        prompt_position = "top",
+        preview_width = 0.55,
+        results_width = 0.8,
+      },
+      vertical = {
+        mirror = false,
+      },
+      width = 0.87,
+      height = 0.80,
+      preview_cutoff = 120,
+    },
 
     mappings = {
       i = {
@@ -32,7 +63,7 @@ telescope.setup {
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
-        ['<c-d>'] = require('telescope.actions').delete_buffer,
+        ['<C-d>'] = actions.delete_buffer,
 
         -- ["<C-u>"] = actions.preview_scrolling_up,
         -- ["<C-d>"] = actions.preview_scrolling_down,
@@ -90,6 +121,7 @@ telescope.setup {
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
   },
+  extensions_list = { "themes", "terms" },
   extensions = {
     media_files = {
       -- filetypes whitelist

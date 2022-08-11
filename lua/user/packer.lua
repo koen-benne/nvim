@@ -56,6 +56,7 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim" -- One of the best plugins ever
   use "nvim-telescope/telescope-media-files.nvim"
+  use "nvim-telescope/telescope-file-browser.nvim"
 
   -- Epic bar
   use "romgrk/barbar.nvim"

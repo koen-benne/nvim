@@ -54,6 +54,7 @@ if vim.fn.has "mac" == 1 then
       Repo = "",
     },
     ui = {
+      Selected = "",
       Lock = "",
       Circle = "",
       BigCircle = "",
