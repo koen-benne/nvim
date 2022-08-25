@@ -66,7 +66,7 @@ return packer.startup(function(use)
 
   -- Git stuff
   use {
-  'lewis6991/gitsigns.nvim',
+  "lewis6991/gitsigns.nvim",
   -- tag = 'release' -- To use the latest release
   }
 
@@ -102,7 +102,7 @@ return packer.startup(function(use)
 
   -- Treesitter
   use {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     run = ':TSUpdate'
   }
   use "nvim-treesitter/nvim-treesitter-textobjects"
@@ -137,8 +137,11 @@ return packer.startup(function(use)
   use "norcalli/nvim-colorizer.lua"
 
   -- Commmenting
-  use 'numToStr/Comment.nvim'
+  use "numToStr/Comment.nvim"
   use "JoosepAlviste/nvim-ts-context-commentstring"
+
+  -- Editorconfig
+  use "gpanders/editorconfig.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
