@@ -97,3 +97,7 @@ setKeymap("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
 setKeymap("n", "<leader>B", "<cmd>lua require'dap'.set_breakpoint(vim.input('Breakpoint condition: '))<CR>")
 setKeymap("n", "<leader>lp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
 setKeymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>")
+
+-- Gitsigns --
+setKeymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
+
