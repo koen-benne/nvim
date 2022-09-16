@@ -2,12 +2,12 @@
 local colorscheme = "tokyonight"
 -- local colorscheme = "everblush"
 
--- TODO: aint no way we using vim.g bruh look at the README
-vim.g.tokyonight_style = "night"
-
--- TODO: Just create a tokyonight config file and load it in if it exists or something nice and neat
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+local status_ok, cs = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
   vim.lsp.buf.formatting() vim.notify("Colorscheme " .. colorscheme .. " not found!")
   return
 end
+
+pcall(require, "user.plugins." .. colorscheme)
+
+vim.cmd[[colorscheme tokyonight]]
