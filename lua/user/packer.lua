@@ -42,7 +42,7 @@ packer.init {
 return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
   use "dominikduda/vim_current_word"
   use "kyazdani42/nvim-web-devicons" -- Necessary for some plugins
   use "kyazdani42/nvim-tree.lua" -- Goated file tree plugin
@@ -69,6 +69,7 @@ return packer.startup(function(use)
   "lewis6991/gitsigns.nvim",
   -- tag = 'release' -- To use the latest release
   }
+  use "kdheepak/lazygit.nvim"
 
   -- LSP tingz
   use "neovim/nvim-lspconfig"
