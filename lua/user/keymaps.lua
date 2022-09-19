@@ -104,5 +104,5 @@ setKeymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
 
 -- Lazygit --
 -- TODO: change exit insert mode keymap when in this window (also nice for terminal)
-setKeymap("n", "<leader>lg", ":LazyGit<CR>")
+setKeymap("n", "<leader>lg", ":lua _LAZYGIT_TOGGLE()<CR>")
 
