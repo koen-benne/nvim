@@ -59,7 +59,11 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope-file-browser.nvim"
 
   -- Epic bar
-  use "romgrk/barbar.nvim"
+  --[[ use "romgrk/barbar.nvim" ]]
+  use {
+    "akinsho/bufferline.nvim",
+    requires = "kyazdani42/nvim-web-devicons"
+  }
 
   -- Tab guide
   use "lukas-reineke/indent-blankline.nvim"
