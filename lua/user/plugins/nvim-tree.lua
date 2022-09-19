@@ -7,22 +7,20 @@ local tree_width = 40
 
 local _M = {}
 
-local status_ok, bufferline = pcall(require, "bufferline.state")
-if status_ok then
-  local view = require"nvim-tree.view"
-  -- @ToDo: Make bufferline shift on startupif nvim tree is opened on startup
-  _M.toggle_tree = function()
-    if view.is_visible() then
-      bufferline.set_offset(0)
-      view.close()
-    else
-      bufferline.set_offset(tree_width, " File Explorer")
-      nvim_tree.open()
-    end
-  end
-end
-
-
+--[[ local status_ok, bufferline = pcall(require, "bufferline.state") ]]
+--[[ if status_ok then ]]
+--[[   local view = require"nvim-tree.view" ]]
+--[[   -- @ToDo: Make bufferline shift on startupif nvim tree is opened on startup ]]
+--[[   _M.toggle_tree = function() ]]
+--[[     if view.is_visible() then ]]
+--[[       bufferline.set_offset(0) ]]
+--[[       view.close() ]]
+--[[     else ]]
+--[[       bufferline.set_offset(tree_width, " File Explorer") ]]
+--[[       nvim_tree.open() ]]
+--[[     end ]]
+--[[   end ]]
+--[[ end ]]
 
 nvim_tree.setup {
   auto_reload_on_write = true,
@@ -47,7 +45,7 @@ nvim_tree.setup {
     mappings = {
       custom_only = false,
       list = {
-        { key = "<C-t>",        action = "" },
+        { key = "<C-t>", action = "" },
       }
     },
   },
