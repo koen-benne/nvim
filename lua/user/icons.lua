@@ -151,6 +151,7 @@ else
       Repo = " ",
     },
     ui = {
+      Selected = "",
       Lock = " ",
       Circle = " ",
       BigCircle = " ",
