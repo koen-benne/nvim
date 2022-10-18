@@ -36,13 +36,13 @@ for k, v in pairs(options) do
 end
 
 -- Autocommands
-vim.cmd [[
-augroup kitty_mp
-  autocmd!
-  au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=4
-  au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 0.7
-  au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#0F1410
-  au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0
-  au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 1
-  au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#1a1b26
-]]
+--[[ vim.cmd [[ ]]
+--[[ augroup kitty_mp ]]
+--[[   autocmd! ]]
+--[[   au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=4 ]]
+--[[   au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 0.7 ]]
+--[[   au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#0F1410 ]]
+--[[   au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 ]]
+--[[   au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 1 ]]
+--[[   au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#1a1b26 ]]
+-- ]]
