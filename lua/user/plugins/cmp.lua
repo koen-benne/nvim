@@ -20,6 +20,14 @@ local icons = require "user.icons"
 local kind_icons = icons.kind
 
 cmp.setup {
+  -- Disable cmp for nvim tree and terminal and such
+  enabled = function ()
+    local buftype= vim.bo.buftype
+    if buftype == 'nofile' or buftype == 'prompt' then
+      return false
+    end
+    return true
+  end,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
