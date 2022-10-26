@@ -101,7 +101,7 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip"
   use {
     "zbirenbaum/copilot-cmp",
-    --[[ after = { "copilot.lua" }, ]]
+    after = { "copilot.lua" },
     config = function ()
       require("copilot_cmp").setup()
     end
