@@ -30,7 +30,6 @@ local options = {
 }
 
 vim.opt.shortmess:append "c"
-vim.g.copilot_node_command = "~/.nvm/versions/node/v17.9.1/bin/node"
 
 for k, v in pairs(options) do
     vim.opt[k] = v

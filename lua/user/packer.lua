@@ -79,8 +79,18 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer"
   use "glepnir/lspsaga.nvim"
   use "b0o/SchemaStore.nvim"
-  use "github/copilot.vim"
   use "jose-elias-alvarez/null-ls.nvim"
+  -- use "github/copilot.vim"
+  use {
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.plugins.copilot"
+      end, 100)
+    end,
+  }
+  use "onsails/lspkind.nvim"
 
   -- Autocompletion
   use "hrsh7th/nvim-cmp"
@@ -89,6 +99,13 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
   use "saadparwaiz1/cmp_luasnip"
+  use {
+    "zbirenbaum/copilot-cmp",
+    --[[ after = { "copilot.lua" }, ]]
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
 
   -- Snippets
   use "L3MON4D3/LuaSnip"

@@ -1,24 +1,32 @@
 -- https://github.com/microsoft/vscode/blob/main/src/vs/base/common/codicons.ts
 -- go to the above and then enter <c-v>u<unicode> and the symbold should appear
 -- or go here and upload the font file: https://mathew-kurian.github.io/CharacterMap/
--- find more here: https://www.nerdfonts.com/cheat-sheet
-if vim.fn.has "mac" == 1 then
+-- find more here: https:if vim.fn.has "mac" == 1 or vim.g.use_nerd_icons then
+  -- elseif vim.fn.has "mac" == 1 then
+if vim.fn.has "mac" == 1 or vim.g.use_nerd_icons then
   return {
     kind = {
       Text = "",
+      -- Method = "m",
+      -- Function = "",
+      -- Constructor = "",
       Method = "",
       Function = "",
       Constructor = "",
       Field = "",
+      -- Variable = "",
       Variable = "",
       Class = "",
       Interface = "",
+      -- Module = "",
       Module = "",
       Property = "",
       Unit = "",
-      Value ="",
+      Value = "",
       Enum = "",
+      -- Keyword = "",
       Keyword = "",
+      -- Snippet = "",
       Snippet = "",
       Color = "",
       File = "",
@@ -35,7 +43,7 @@ if vim.fn.has "mac" == 1 then
       Array = "",
       Number = "",
       String = "",
-      Boolean = "蘒",
+      Boolean = "蘒",
       Object = "",
     },
     documents = {
@@ -52,9 +60,11 @@ if vim.fn.has "mac" == 1 then
       Rename = "",
       Diff = "",
       Repo = "",
+      Octoface = "",
     },
     ui = {
-      Selected = "",
+      ArrowClosed = "",
+      ArrowOpen = "",
       Lock = "",
       Circle = "",
       BigCircle = "",
@@ -74,14 +84,17 @@ if vim.fn.has "mac" == 1 then
       Package = "",
       List = "",
       SignIn = "",
+      SignOut = "",
       Check = "",
       Fire = "",
       Note = "",
       BookMark = "",
       Pencil = "",
-      ChevronRight = "",
+      -- ChevronRight = "",
+      ChevronRight = ">",
       Table = "",
       Calendar = "",
+      CloudDownload = "",
     },
     diagnostics = {
       Error = "",
@@ -95,10 +108,13 @@ if vim.fn.has "mac" == 1 then
       Squirrel = "",
       Tag = "",
       Watch = "",
+      Smiley = "ﲃ",
+      Package = "",
+      CircuitBoard = "",
     },
   }
 else
-  --   פּ ﯟ   蘒練 some other good icons for other OS or sum
+  --   פּ ﯟ   蘒練 some other good icons
   return {
     kind = {
       Text = " ",
@@ -149,9 +165,11 @@ else
       Rename = " ",
       Diff = " ",
       Repo = " ",
+      Octoface = " ",
     },
     ui = {
-      Selected = "",
+      ArrowClosed = "",
+      ArrowOpen = "",
       Lock = " ",
       Circle = " ",
       BigCircle = " ",
@@ -171,6 +189,8 @@ else
       Package = " ",
       List = " ",
       SignIn = " ",
+      SignOut = " ",
+      NoteBook = " ",
       Check = " ",
       Fire = " ",
       Note = " ",
@@ -179,6 +199,7 @@ else
       ChevronRight = "",
       Table = " ",
       Calendar = " ",
+      CloudDownload = " ",
     },
     diagnostics = {
       Error = " ",
@@ -192,6 +213,9 @@ else
       Squirrel = " ",
       Tag = " ",
       Watch = " ",
+      Smiley = " ",
+      Package = " ",
+      CircuitBoard = " ",
     },
   }
 end

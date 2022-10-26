@@ -8,16 +8,34 @@ if not snip_status_ok then
   return
 end
 
+local buffer_fts = {
+  "markdown",
+  "toml",
+  "yaml",
+  "json",
+}
+
+local compare = require "cmp.config.compare"
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
+--[[ local check_backspace = function() ]]
+--[[   local col = vim.fn.col "." - 1 ]]
+--[[   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s" ]]
+--[[ end ]]
 local check_backspace = function()
-  local col = vim.fn.col "." - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
 local icons = require "user.icons"
 
 local kind_icons = icons.kind
+
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
+vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
+vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
 
 cmp.setup {
   -- Disable cmp for nvim tree and terminal and such
@@ -50,11 +68,14 @@ cmp.setup {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expandable() then
-        luasnip.expand()
+      elseif luasnip.jumpable(1) then
+        luasnip.jump(1)
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
+      elseif luasnip.expandable() then
+        luasnip.expand()
       elseif check_backspace() then
+        -- cmp.complete()
         fallback()
       else
         fallback()
@@ -84,14 +105,32 @@ cmp.setup {
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 
       if entry.source.name == "cmp_tabnine" then
-        -- if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-        -- menu = entry.completion_item.data.detail .. " " .. menu
-        -- end
         vim_item.kind = icons.misc.Robot
+        vim_item.kind_hl_group = "CmpItemKindTabline"
+      end
+      if entry.source.name == "copilot" then
+        vim_item.kind = icons.git.Octoface
+        vim_item.kind_hl_group = "CmpItemKindCopilot"
+      end
+
+      if entry.source.name == "emoji" then
+        vim_item.kind = icons.misc.Smiley
+        vim_item.kind_hl_group = "CmpItemKindEmoji"
+      end
+
+      --[[ if entry.source.name == "crates" then ]]
+      --[[   vim_item.kind = icons.misc.Package ]]
+      --[[   vim_item.kind_hl_group = "CmpItemKindCrate" ]]
+      --[[ end ]]
+
+      if entry.source.name == "lab.quick_data" then
+        vim_item.kind = icons.misc.CircuitBoard
+        vim_item.kind_hl_group = "CmpItemKindConstant"
       end
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       -- NOTE: order matters
       vim_item.menu = ({
+        copilot = "[Copilot]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[Nvim]",
         luasnip = "[Snippet]",
@@ -110,13 +149,81 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "nvim_lsp" },
-    { name = "nvim_lua" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "cmp_tabnine" },
-    { name = "path" },
-    { name = "emoji" },
+    --[[ { name = "crates", group_index = 1 }, ]]
+    {
+      name = "copilot",
+      -- keyword_length = 0,
+      max_item_count = 3,
+      trigger_characters = {
+        {
+          ".",
+          ":",
+          "(",
+          "'",
+          '"',
+          "[",
+          ",",
+          "#",
+          "*",
+          "@",
+          "|",
+          "=",
+          "-",
+          "{",
+          "/",
+          "\\",
+          "+",
+          "?",
+          " ",
+          -- "\t",
+          -- "\n",
+        },
+      },
+      group_index = 2,
+    },
+    {
+      name = "nvim_lsp",
+      filter = function(entry, ctx)
+        local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
+        if kind == "Snippet" and ctx.prev_context.filetype == "java" then
+          return true
+        end
+
+        if kind == "Text" then
+          return true
+        end
+      end,
+      group_index = 2,
+    },
+    { name = "nvim_lua", group_index = 2 },
+    { name = "luasnip", group_index = 2 },
+    {
+      name = "buffer",
+      group_index = 2,
+      filter = function(entry, ctx)
+        if not contains(buffer_fts, ctx.prev_context.filetype) then
+          return true
+        end
+      end,
+    },
+    { name = "cmp_tabnine", group_index = 2 },
+    { name = "path", group_index = 2 },
+    { name = "emoji", group_index = 2 },
+  },
+  sorting = {
+    priority_weight = 2,
+    comparators = {
+      compare.offset,
+      compare.exact,
+      -- compare.scopes,
+      compare.score,
+      compare.recently_used,
+      compare.locality,
+      -- compare.kind,
+      compare.sort_text,
+      compare.length,
+      compare.order,
+    },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
