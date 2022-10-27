@@ -154,5 +154,6 @@ telescope.setup {
 }
 
 -- telescope.load_extension "ui-select"
+-- TODO: check if these exist first
 telescope.load_extension "file_browser"
 telescope.load_extension "projects"
