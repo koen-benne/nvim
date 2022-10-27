@@ -23,6 +23,9 @@ local _M = {}
 --[[ end ]]
 
 nvim_tree.setup {
+  -- project.nvim stuff
+  respect_buf_cwd = true,
+
   auto_reload_on_write = true,
   disable_netrw = false,
   hijack_cursor = false,
@@ -64,7 +67,9 @@ nvim_tree.setup {
     auto_open = true,
   },
   update_focused_file = {
-    enable = false,
+    -- for project.nvim
+    enable = true,
+    update_root = true,
     update_cwd = false,
     ignore_list = {},
   },

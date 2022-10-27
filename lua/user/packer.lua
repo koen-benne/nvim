@@ -120,6 +120,7 @@ return packer.startup(function(use)
 
   -- Start screen
   use "goolord/alpha-nvim"
+  use "ahmedkhalf/project.nvim"
 
   -- Treesitter
   use {
