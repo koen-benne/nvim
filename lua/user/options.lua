@@ -43,6 +43,7 @@ if vim.g.neovide then
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_cursor_animation_length = 0.01
   vim.g.neovide_scale_factor = 1.0
+  vim.g.neovide_scroll_animation_length = 0.6
   --[[ vim.g.neovide_winblend = 90 ]]
   --[[ vim.g.neovide_pumblend = 90 ]]
   vim.g.neovide_floating_opacity = 0.6
