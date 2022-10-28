@@ -106,3 +106,9 @@ setKeymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
 -- TODO: change exit insert mode keymap when in this window (also nice for terminal)
 setKeymap("n", "<leader>lg", ":lua _LAZYGIT_TOGGLE()<CR>")
 
+-- Neovide keymaps
+if vim.g.neovide then
+  setKeymap("n", "+", ":lua ChangeScaleFactor(1.25)<CR>")
+  setKeymap("n", "_", ":lua ChangeScaleFactor(1/1.25)<CR>")
+end
+

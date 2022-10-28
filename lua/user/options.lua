@@ -35,12 +35,20 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
+-- Neovide opts
 if vim.g.neovide then
   vim.g.neovide_transparency = 0.95
-  vim.g.neovide_floating_blur_amount_x = 2.0
-  vim.g.neovide_floating_blur_amount_y = 2.0
+  vim.g.neovide_floating_blur_amount_x = 7.0
+  vim.g.neovide_floating_blur_amount_y = 7.0
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_cursor_animation_length = 0.01
+  vim.g.neovide_scale_factor = 1.0
+  --[[ vim.g.neovide_winblend = 90 ]]
+  --[[ vim.g.neovide_pumblend = 90 ]]
+  vim.g.neovide_floating_opacity = 0.6
+  function ChangeScaleFactor(delta)
+      vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+  end
 end
 
 -- Autocommands
