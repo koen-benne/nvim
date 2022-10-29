@@ -62,3 +62,10 @@ end
 --[[   au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 1 ]]
 --[[   au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#1a1b26 ]]
 -- ]]
+
+vim.cmd [[
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave  * if &nu                  | set nornu | endif
+]]
