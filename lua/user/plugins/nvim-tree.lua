@@ -26,11 +26,12 @@ nvim_tree.setup {
   -- project.nvim stuff
   respect_buf_cwd = true,
 
+  --[[ highlight_focused_file = true, ]]
   auto_reload_on_write = true,
   disable_netrw = false,
-  hijack_cursor = false,
+  hijack_cursor = true,
   hijack_netrw = true,
-  hijack_unnamed_buffer_when_opening = false,
+  hijack_unnamed_buffer_when_opening = true,
   ignore_buffer_on_setup = false,
   open_on_setup = false,
   open_on_setup_file = false,
@@ -79,8 +80,8 @@ nvim_tree.setup {
     args = {},
   },
   diagnostics = {
-    enable = false,
-    show_on_dirs = false,
+    enable = true,
+    show_on_dirs = true,
     icons = {
       hint = "",
       info = "",
@@ -132,6 +133,6 @@ nvim_tree.setup {
       profile = false,
     },
   },
-} -- END_DEFAULT_OPTS
+}
 
 return _M
