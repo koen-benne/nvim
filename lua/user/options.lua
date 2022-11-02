@@ -28,6 +28,7 @@ local options = {
     termguicolors = true,
     laststatus = 2,                                   -- Single statusline when set to 3
     guifont = "JetBrainsMonoNL Nerd Font Mono:h15",   -- font used in GUI neovim
+    cursorline = true,
 }
 
 vim.opt.shortmess:append "c"
@@ -37,7 +38,12 @@ for k, v in pairs(options) do
 end
 
 -- vim-better-whitespace options
-vim.g.better_whitespace_filetypes_blacklist = {'NvimTree', 'toggleterm', 'TelescopePrompt'}
+vim.g.better_whitespace_filetypes_blacklist = {
+  'NvimTree',
+  'toggleterm',
+  'TelescopePrompt',
+  'alpha',
+}
 
 -- Neovide opts
 if vim.g.neovide then
