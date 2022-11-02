@@ -36,6 +36,9 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
+-- vim-better-whitespace options
+vim.g.better_whitespace_filetypes_blacklist = {'NvimTree', 'toggleterm', 'TelescopePrompt'}
+
 -- Neovide opts
 if vim.g.neovide then
   vim.g.neovide_transparency = 0.95
