@@ -47,7 +47,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua" -- Goated file tree plugin
   use "akinsho/toggleterm.nvim" -- Terminal
   use "folke/persistence.nvim"
-  use "RRethy/vim-illuminate.nvim"
+  use "RRethy/vim-illuminate"
 
   -- Auto stuff
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
