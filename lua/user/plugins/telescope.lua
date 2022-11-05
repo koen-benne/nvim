@@ -157,3 +157,4 @@ telescope.setup {
 -- TODO: check if these exist first
 telescope.load_extension "file_browser"
 telescope.load_extension "projects"
+telescope.load_extension "harpoon"

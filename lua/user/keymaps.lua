@@ -67,37 +67,37 @@ setKeymap("x", "<A-k>", ":move '<-2<CR>gv-gv")
 
 -- Custom --
 -- Telescope --
-setKeymap("", "<Leader>pp", "<cmd>lua require'telescope.builtin'.builtin{}<CR>")
+setKeymap("", "<Leader>pp", ":lua require'telescope.builtin'.builtin{}<CR>")
 -- most recently used files
-setKeymap("", "<Leader>m", "<cmd>lua require'telescope.builtin'.oldfiles{}<CR>")
+setKeymap("", "<Leader>o", ":lua require'telescope.builtin'.oldfiles{}<CR>")
 -- find buffer
-setKeymap("", ";", "<cmd>lua require'telescope.builtin'.buffers{}<CR>")
+setKeymap("", ";", ":lua require'telescope.builtin'.buffers{}<CR>")
 -- find in current buffer
-setKeymap("", "<Leader>/", "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>")
+setKeymap("", "<Leader>/", ":lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>")
 -- bookmarks
-setKeymap("", "<Leader>'", "<cmd>lua require'telescope.builtin'.marks{}<CR>")
+setKeymap("", "<Leader>'", ":lua require'telescope.builtin'.marks{}<CR>")
 -- git files
-setKeymap("", "<Leader>g", "<cmd>lua require'telescope.builtin'.git_files{}<CR>")
+setKeymap("", "<Leader>g", ":lua require'telescope.builtin'.git_files{}<CR>")
 -- all files
-setKeymap("", "<Leader>bfs", "<cmd>lua require'telescope.builtin'.find_files{}<CR>")
+setKeymap("", "<Leader>bfs", ":lua require'telescope.builtin'.find_files{}<CR>")
 -- ripgrep like grep through dir
-setKeymap("", "<Leader>rg", "<cmd>lua require'telescope.builtin'.live_grep{}<CR>")
+setKeymap("", "<Leader>rg", ":lua require'telescope.builtin'.live_grep{}<CR>")
 -- pick color scheme
-setKeymap("", "<Leader>cs", "<cmd>lua require'telescope.builtin'.colorscheme{}<CR>")
+setKeymap("", "<Leader>cs", ":lua require'telescope.builtin'.colorscheme{}<CR>")
 
 -- NVIM Tree --
---[[ setKeymap("n", "<C-t>", "<cmd>lua require'user.plugins.nvim-tree'.toggle_tree()<CR>") ]]
-setKeymap("n", "<C-t>", "<cmd>NvimTreeToggle<CR>")
+--[[ setKeymap("n", "<C-t>", ":lua require'user.plugins.nvim-tree'.toggle_tree()<CR>") ]]
+setKeymap("n", "<C-t>", ":NvimTreeToggle<CR>")
 
 -- Debugging --
-setKeymap("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>")
-setKeymap("n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>")
-setKeymap("n", "<F11>", "<cmd>lua require'dap'.step_into()<CR>")
-setKeymap("n", "<F12>", "<cmd>lua require'dap'.step_out()<CR>")
-setKeymap("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
-setKeymap("n", "<leader>B", "<cmd>lua require'dap'.set_breakpoint(vim.input('Breakpoint condition: '))<CR>")
-setKeymap("n", "<leader>lp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
-setKeymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>")
+setKeymap("n", "<F5>", ":lua require'dap'.continue()<CR>")
+setKeymap("n", "<F10>", ":lua require'dap'.step_over()<CR>")
+setKeymap("n", "<F11>", ":lua require'dap'.step_into()<CR>")
+setKeymap("n", "<F12>", ":lua require'dap'.step_out()<CR>")
+setKeymap("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
+setKeymap("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.input('Breakpoint condition: '))<CR>")
+setKeymap("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
+setKeymap("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 
 -- Gitsigns --
 setKeymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
@@ -112,3 +112,7 @@ if vim.g.neovide then
   setKeymap("n", "_", ":lua ChangeScaleFactor(1/1.25)<CR>")
 end
 
+-- Harpoon keymaps
+setKeymap("n", "<leader>mk", ":lua require'harpoon.mark'.add_file()<CR>")
+--[[ setKeymap("n", "<leader>hr", ":lua require'harpoon.ui'.toggle_quick_menu()<CR>") ]]
+setKeymap("n", "<leader>hr", ":Telescope harpoon marks<CR>")

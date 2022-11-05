@@ -49,6 +49,9 @@ return packer.startup(function(use)
   use "folke/persistence.nvim"
   use "RRethy/vim-illuminate"
 
+  -- Harpoon
+  use "ThePrimeagen/harpoon"
+
   -- Auto stuff
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "windwp/nvim-ts-autotag"
@@ -150,6 +153,7 @@ return packer.startup(function(use)
   use "folke/tokyonight.nvim"
   use "mangeshrex/everblush.vim"
 
+  -- Should check these
   use "tpope/vim-ragtag"
   use "tpope/vim-unimpaired"
 
