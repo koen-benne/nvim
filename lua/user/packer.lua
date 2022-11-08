@@ -49,6 +49,8 @@ return packer.startup(function(use)
   use "folke/persistence.nvim"
   use "RRethy/vim-illuminate"
 
+  use "stevearc/dressing.nvim"
+
   -- Harpoon
   use "ThePrimeagen/harpoon"
 
