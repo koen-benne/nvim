@@ -9,6 +9,7 @@ local icons = require("user.icons")
 
 telescope.setup {
   defaults = {
+    winblend = 10,
 
     vimgrep_arguments = {
       "rg",
