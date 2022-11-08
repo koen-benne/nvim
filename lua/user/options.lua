@@ -27,7 +27,7 @@ local options = {
     splitright = true,
     termguicolors = true,
     laststatus = 2,                                   -- Single statusline when set to 3
-    guifont = "JetBrainsMonoNL Nerd Font Mono:h15",   -- font used in GUI neovim
+    guifont = "JetBrainsMonoNL Nerd Font Mono:h11",   -- font used in GUI neovim
     cursorline = true,
     pumblend = 10,
     winblend = 10,
@@ -63,16 +63,16 @@ if vim.g.neovide then
 end
 
 -- Autocommands
---[[ vim.cmd [[ ]]
---[[ augroup kitty_mp ]]
---[[   autocmd! ]]
---[[   au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=4 ]]
---[[   au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 0.7 ]]
---[[   au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#0F1410 ]]
---[[   au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 ]]
---[[   au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 1 ]]
---[[   au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#1a1b26 ]]
--- ]]
+vim.cmd [[
+augroup kitty_mp
+  autocmd!
+  au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=4 &
+  au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 0.7 &
+  au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#0F1410 &
+  au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 &
+  au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 1 &
+  au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#1a1b26 &
+]]
 
 vim.cmd [[
 augroup numbertoggle
