@@ -77,7 +77,7 @@ setKeymap("", "<Leader>/", ":lua require'telescope.builtin'.current_buffer_fuzzy
 -- bookmarks
 setKeymap("", "<Leader>'", ":lua require'telescope.builtin'.marks{}<CR>")
 -- git files
-setKeymap("", "<Leader>g", ":lua require'telescope.builtin'.git_files{}<CR>")
+setKeymap("", "<Leader>gi", ":lua require'telescope.builtin'.git_files{}<CR>")
 -- all files
 setKeymap("", "<Leader>bfs", ":lua require'telescope.builtin'.find_files{}<CR>")
 -- ripgrep like grep through dir
