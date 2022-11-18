@@ -40,6 +40,7 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
+  use "dstein64/vim-startuptime" -- For testing startup time
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
@@ -59,9 +60,23 @@ return packer.startup(function(use)
   use "windwp/nvim-ts-autotag"
 
   -- Telescope
-  use "nvim-telescope/telescope.nvim" -- One of the best plugins ever
-  use "nvim-telescope/telescope-media-files.nvim"
-  use "nvim-telescope/telescope-file-browser.nvim"
+  use {
+    "nvim-telescope/telescope.nvim",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.plugins.telescope"
+      end, 100)
+    end,
+  } -- One of the best plugins ever
+  use {
+    "nvim-telescope/telescope-media-files.nvim",
+    after = { "telescope.nvim" }
+  }
+  use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    after = { "telescope.nvim" }
+  }
 
   -- Epic bar
   --[[ use "romgrk/barbar.nvim" ]]
@@ -98,15 +113,23 @@ return packer.startup(function(use)
   use "onsails/lspkind.nvim"
 
   -- Autocompletion
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/cmp-cmdline"
-  use "saadparwaiz1/cmp_luasnip"
+  use {
+    "hrsh7th/nvim-cmp",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.plugins.cmp"
+      end, 100)
+    end,
+  }
+  use {"hrsh7th/cmp-nvim-lsp", after = { "nvim-cmp" }}
+  use {"hrsh7th/cmp-buffer", after = { "nvim-cmp" }}
+  use {"hrsh7th/cmp-path", after = { "nvim-cmp" }}
+  use {"hrsh7th/cmp-cmdline", after = { "nvim-cmp" }}
+  use {"saadparwaiz1/cmp_luasnip", after = { "nvim-cmp" }}
   use {
     "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
+    after = { "copilot.lua", "nvim-cmp" },
     config = function ()
       require("copilot_cmp").setup()
     end
