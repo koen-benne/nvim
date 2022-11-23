@@ -1,10 +1,7 @@
 -- Requiring all the necessary plugin configuration files
 require "user.plugins.lualine"
-require "user.plugins.lsp"
-require "user.plugins.nvim-tree"
 require "user.plugins.treesitter"
 require "user.plugins.toggleterm"
-require "user.plugins.autopairs"
 require "user.plugins.comment"
 require "user.plugins.nvim-colorizer"
 require "user.plugins.indent-blankline"

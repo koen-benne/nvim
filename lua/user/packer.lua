@@ -19,7 +19,7 @@ end
 vim.cmd [[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost packer.lua source <afile> | PackerSync
   augroup end
 ]]
 
@@ -45,10 +45,19 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
   use "kyazdani42/nvim-web-devicons" -- Necessary for some plugins
-  use "kyazdani42/nvim-tree.lua" -- Goated file tree plugin
   use "akinsho/toggleterm.nvim" -- Terminal
   use "folke/persistence.nvim"
   use "RRethy/vim-illuminate"
+
+  -- File tree plugin
+  use {"kyazdani42/nvim-tree.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.plugins.nvim-tree"
+      end, 100)
+    end,
+  }
 
   use "stevearc/dressing.nvim"
 
@@ -56,7 +65,15 @@ return packer.startup(function(use)
   use "ThePrimeagen/harpoon"
 
   -- Auto stuff
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use {
+    "windwp/nvim-autopairs",
+    after = { "nvim-cmp" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.plugins.autopairs"
+      end, 100)
+    end,
+  } -- Autopairs, integrates with both cmp and treesitter
   use "windwp/nvim-ts-autotag"
 
   -- Telescope
@@ -95,7 +112,15 @@ return packer.startup(function(use)
   }
 
   -- LSP tingz
-  use "neovim/nvim-lspconfig"
+  use {
+    "neovim/nvim-lspconfig",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.plugins.lsp"
+      end, 100)
+    end
+  }
   use "williamboman/nvim-lsp-installer"
   use "glepnir/lspsaga.nvim"
   use "b0o/SchemaStore.nvim"
@@ -108,7 +133,7 @@ return packer.startup(function(use)
       vim.defer_fn(function()
         require "user.plugins.copilot"
       end, 100)
-    end,
+    end
   }
   use "onsails/lspkind.nvim"
 
@@ -136,8 +161,8 @@ return packer.startup(function(use)
   }
 
   -- Snippets
-  use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets"
+  use {"L3MON4D3/LuaSnip", after = { "nvim-cmp" }}
+  -- use "rafamadriz/friendly-snippets"
 
   -- Debugging
   use "mfussenegger/nvim-dap"
