@@ -1,4 +1,4 @@
--- Requiring all the necessary plugin configuration files
+-- Requiring all the necessary plugin configuration files that are not lazy loaded
 require "user.plugins.lualine"
 require "user.plugins.treesitter"
 require "user.plugins.toggleterm"

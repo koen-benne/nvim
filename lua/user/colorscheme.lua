@@ -1,4 +1,3 @@
--- TODO: This shit needs a rewrite what the fuck is this. We need night not this storm shit
 local colorscheme = "tokyonight"
 -- local colorscheme = "everblush"
 
