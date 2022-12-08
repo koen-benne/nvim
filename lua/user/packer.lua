@@ -121,7 +121,17 @@ return packer.startup(function(use)
       end, 100)
     end
   }
-  use "williamboman/nvim-lsp-installer"
+  -- Package manager
+  use "williamboman/mason.nvim"
+  use {"williamboman/mason-lspconfig.nvim",
+    after = { "nvim-lspconfig" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.plugins.lsp.mason-lspconfig"
+      end, 100)
+    end
+  }
+
   use "glepnir/lspsaga.nvim"
   use "b0o/SchemaStore.nvim"
   use "jose-elias-alvarez/null-ls.nvim"
