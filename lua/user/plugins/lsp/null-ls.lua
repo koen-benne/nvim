@@ -13,6 +13,6 @@ null_ls.setup({
     diagnostics.eslint, -- eslint or eslint_d
     code_actions.eslint, -- eslint or eslint_d
     formatting.prettier, -- prettier, eslint, eslint_d, or prettierd
-          formatting.stylua,
+    formatting.stylua,
   }
 })

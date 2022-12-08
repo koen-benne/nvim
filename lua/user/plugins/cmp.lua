@@ -114,10 +114,10 @@ cmp.setup {
         vim_item.kind_hl_group = "CmpItemKindEmoji"
       end
 
-      --[[ if entry.source.name == "crates" then ]]
-      --[[   vim_item.kind = icons.misc.Package ]]
-      --[[   vim_item.kind_hl_group = "CmpItemKindCrate" ]]
-      --[[ end ]]
+      if entry.source.name == "crates" then
+        vim_item.kind = icons.misc.Package
+        vim_item.kind_hl_group = "CmpItemKindCrate"
+      end
 
       if entry.source.name == "lab.quick_data" then
         vim_item.kind = icons.misc.CircuitBoard
@@ -146,7 +146,7 @@ cmp.setup {
     end,
   },
   sources = {
-    --[[ { name = "crates", group_index = 1 }, ]]
+    { name = "crates", group_index = 1 },
     {
       name = "copilot",
       -- keyword_length = 0,

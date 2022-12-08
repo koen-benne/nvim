@@ -159,6 +159,15 @@ return packer.startup(function(use)
       require("copilot_cmp").setup()
     end
   }
+  use {
+    'saecki/crates.nvim',
+    tag = 'v0.3.0',
+    requires = { 'nvim-lua/plenary.nvim' },
+    after = { "nvim-cmp" },
+    config = function()
+      require('crates').setup()
+    end,
+  }
 
   -- Snippets
   use {"L3MON4D3/LuaSnip", after = { "nvim-cmp" }}
