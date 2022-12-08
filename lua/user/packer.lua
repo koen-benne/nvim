@@ -121,6 +121,8 @@ return packer.startup(function(use)
       end, 100)
     end
   }
+  use "simrat39/rust-tools.nvim"
+
   -- Package manager
   use "williamboman/mason.nvim"
   use {"williamboman/mason-lspconfig.nvim",

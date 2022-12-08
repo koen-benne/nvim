@@ -16,9 +16,11 @@ mason_lspconfig.setup_handlers {
     function (server_name) -- default handler
         require("lspconfig")[server_name].setup(opts)
     end,
-    -- ["rust_analyzer"] = function ()
-    --     require("rust-tools").setup {}
-    -- end
+
+    ["rust_analyzer"] = function ()
+        require("rust-tools").setup()
+    end,
+
     ["sumneko_lua"] = function ()
       local sumneko_opts = require "user.plugins.lsp.settings.sumneko_lua"
       require("lspconfig").sumneko_lua.setup(vim.tbl_deep_extend("force", sumneko_opts, opts))
