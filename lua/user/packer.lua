@@ -197,18 +197,23 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "ahmedkhalf/project.nvim"
 
-  use {"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async"}
-
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ':TSUpdate',
-    require('ufo').setup({
-        provider_selector = function(bufnr, filetype, buftype)
-            return {'treesitter', 'indent'}
-        end
-    })
   }
+
+  use {
+    "kevinhwang91/nvim-ufo",
+    requires = "kevinhwang91/promise-async",
+    after = { "nvim-treesitter" },
+    config = function ()
+      vim.defer_fn(function()
+        require "user.plugins.ufo"
+      end, 100)
+    end
+  }
+
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
   -- Bottom bar
