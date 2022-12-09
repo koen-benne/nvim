@@ -48,6 +48,7 @@ return packer.startup(function(use)
   use "akinsho/toggleterm.nvim" -- Terminal
   use "folke/persistence.nvim"
   use "RRethy/vim-illuminate"
+  use "kevinhwang91/promise-async" -- Some plugins need this
 
   -- File tree plugin
   use {"kyazdani42/nvim-tree.lua",
@@ -196,10 +197,17 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "ahmedkhalf/project.nvim"
 
+  use {"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async"}
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    require('ufo').setup({
+        provider_selector = function(bufnr, filetype, buftype)
+            return {'treesitter', 'indent'}
+        end
+    })
   }
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
