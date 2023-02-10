@@ -8,21 +8,6 @@ if not status_ok then
   return
 end
 
-vim.g.copilot_node_command = "~/.nvm/versions/node/v17.9.1/bin/node"
-
 copilot.setup {
-  panel = { -- no config options yet
-    enabled = true,
-  },
-  -- ft_disable = { "markdown" },
-  -- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
-  server_opts_overrides = {
-    -- trace = "verbose",
-    settings = {
-      advanced = {
-        -- listCount = 10, -- #completions for panel
-        inlineSuggestCount = 3, -- #completions for getCompletions
-      },
-    },
-  },
+  --[[ copilot_node_command = "/home/koen/.asdf/install/nodejs/19.2.0/bin/node", ]]
 }

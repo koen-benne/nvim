@@ -138,7 +138,6 @@ return packer.startup(function(use)
   use "glepnir/lspsaga.nvim"
   use "b0o/SchemaStore.nvim"
   use "jose-elias-alvarez/null-ls.nvim"
-  -- use "github/copilot.vim"
   use {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
@@ -165,13 +164,6 @@ return packer.startup(function(use)
   use {"hrsh7th/cmp-path", after = { "nvim-cmp" }}
   use {"hrsh7th/cmp-cmdline", after = { "nvim-cmp" }}
   use {"saadparwaiz1/cmp_luasnip", after = { "nvim-cmp" }}
-  use {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua", "nvim-cmp" },
-    config = function ()
-      require("copilot_cmp").setup()
-    end
-  }
   use {
     'saecki/crates.nvim',
     tag = 'v0.3.0',

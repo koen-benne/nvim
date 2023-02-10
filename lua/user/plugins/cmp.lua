@@ -28,7 +28,6 @@ local icons = require "user.icons"
 
 local kind_icons = icons.kind
 
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
 vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
 vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
@@ -104,10 +103,6 @@ cmp.setup {
         vim_item.kind = icons.misc.Robot
         vim_item.kind_hl_group = "CmpItemKindTabline"
       end
-      if entry.source.name == "copilot" then
-        vim_item.kind = icons.git.Octoface
-        vim_item.kind_hl_group = "CmpItemKindCopilot"
-      end
 
       if entry.source.name == "emoji" then
         vim_item.kind = icons.misc.Smiley
@@ -127,7 +122,6 @@ cmp.setup {
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       -- NOTE: order matters
       vim_item.menu = ({
-        -- copilot = "[Copilot]",
         -- nvim_lsp = "[LSP]",
         -- nvim_lua = "[Nvim]",
         -- luasnip = "[Snippet]",
@@ -147,37 +141,6 @@ cmp.setup {
   },
   sources = {
     { name = "crates", group_index = 1 },
-    {
-      name = "copilot",
-      -- keyword_length = 0,
-      max_item_count = 3,
-      trigger_characters = {
-        {
-          ".",
-          ":",
-          "(",
-          "'",
-          '"',
-          "[",
-          ",",
-          "#",
-          "*",
-          "@",
-          "|",
-          "=",
-          "-",
-          "{",
-          "/",
-          "\\",
-          "+",
-          "?",
-          " ",
-          -- "\t",
-          -- "\n",
-        },
-      },
-      group_index = 2,
-    },
     {
       name = "nvim_lsp",
       filter = function(entry, ctx)
