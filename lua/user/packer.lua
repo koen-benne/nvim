@@ -46,8 +46,8 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
   use "kyazdani42/nvim-web-devicons" -- Necessary for some plugins
   use "akinsho/toggleterm.nvim" -- Terminal
-  use "folke/persistence.nvim"
-  use "RRethy/vim-illuminate"
+  use "folke/persistence.nvim" -- Session management
+  use "RRethy/vim-illuminate" -- Highlight current word and other occurences
   use "kevinhwang91/promise-async" -- Some plugins need this
 
   -- File tree plugin
@@ -96,8 +96,6 @@ return packer.startup(function(use)
     after = { "telescope.nvim" }
   }
 
-  -- Epic bar
-  --[[ use "romgrk/barbar.nvim" ]]
   use {
     "akinsho/bufferline.nvim",
     requires = "kyazdani42/nvim-web-devicons"
