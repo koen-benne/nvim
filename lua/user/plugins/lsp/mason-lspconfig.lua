@@ -4,7 +4,7 @@ if not status_lsp then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "lua-language-server" },
+  ensure_installed = { "lua_ls" },
 }
 
 local opts = {
@@ -21,9 +21,9 @@ mason_lspconfig.setup_handlers {
         require("rust-tools").setup()
     end,
 
-    ["lua-language-server"] = function ()
-      local lua_opts = require "user.plugins.lsp.settings.lua_language_server"
-      require("lspconfig").lua_language_server.setup(vim.tbl_deep_extend("force", lua_opts, opts))
+    ["lua_ls"] = function ()
+      local lua_ls_opts = require "user.plugins.lsp.settings.lua_ls"
+      require("lspconfig").lua_ls.setup(vim.tbl_deep_extend("force", lua_ls_opts, opts))
     end,
 
     ["jsonls"] = function ()
