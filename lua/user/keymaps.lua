@@ -77,7 +77,7 @@ setKeymap("", "<Leader>'", ":lua require'telescope.builtin'.marks{}<CR>")
 -- git files
 setKeymap("", "<Leader>gi", ":lua require'telescope.builtin'.git_files{}<CR>")
 -- all files
-setKeymap("", "<Leader>bfs", ":lua require'telescope.builtin'.find_files{}<CR>")
+setKeymap("", "<Leader>sf", ":lua require'telescope.builtin'.find_files{}<CR>")
 -- ripgrep like grep through dir
 setKeymap("", "<Leader>rg", ":lua require'telescope.builtin'.live_grep{}<CR>")
 -- pick color scheme
