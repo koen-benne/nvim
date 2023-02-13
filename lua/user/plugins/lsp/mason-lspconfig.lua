@@ -4,7 +4,7 @@ if not status_lsp then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "sumneko_lua" },
+  ensure_installed = { "lua_language_server" },
 }
 
 local opts = {
