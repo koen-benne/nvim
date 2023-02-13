@@ -21,9 +21,9 @@ mason_lspconfig.setup_handlers {
         require("rust-tools").setup()
     end,
 
-    ["sumneko_lua"] = function ()
-      local sumneko_opts = require "user.plugins.lsp.settings.sumneko_lua"
-      require("lspconfig").sumneko_lua.setup(vim.tbl_deep_extend("force", sumneko_opts, opts))
+    ["lua_language_server"] = function ()
+      local lua_opts = require "user.plugins.lsp.settings.lua_language_server"
+      require("lspconfig").lua_language_server.setup(vim.tbl_deep_extend("force", lua_opts, opts))
     end,
 
     ["jsonls"] = function ()
