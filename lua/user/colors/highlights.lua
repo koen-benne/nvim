@@ -8,7 +8,7 @@ local bg = require("core.utils").bg
 fg_bg("TelescopeBorder", "#16161e", "#16161e")
 fg_bg("TelescopePromptBorder", "#b1a1b26", "#b1a1b26")
 
-fg_bg("TelescopePromptNormal", white, "#b1a1b26")
+fg_bg("TelescopePromptNormal", "#fff", "#b1a1b26")
 fg_bg("TelescopePromptPrefix", "#f7768e", "#b1a1b26")
 
 bg("TelescopeNormal", "#16161e")
