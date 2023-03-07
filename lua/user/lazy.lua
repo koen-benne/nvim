@@ -48,12 +48,25 @@ lazy.setup({
   },
 
   -- File tree plugin
+  --[[ { ]]
+  --[[   "kyazdani42/nvim-tree.lua", ]]
+  --[[   keys = { ]]
+  --[[     { "<C-t>", ":NvimTreeToggle<CR>", desc = "NvimTree" } ]]
+  --[[   }, ]]
+  --[[   config = get_config("nvim-tree"), ]]
+  --[[   enabled = false, ]]
+  --[[ }, ]]
+
   {
-    "kyazdani42/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
     keys = {
-      { "<C-t>", ":NvimTreeToggle<CR>", desc = "NvimTree" }
+      { "<C-t>", ":NvimTreeToggle<CR>", desc = "NeoTree" }
     },
-    config = get_config("nvim-tree"),
+    config = get_config("neo-tree"),
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
   },
 
   {
