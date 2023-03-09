@@ -44,17 +44,6 @@ M.setup = function()
   })
 end
 
--- Enable illuminate when document highlighting is enabled
-local function lsp_highlight_document(client)
-  if client.server_capabilities.document_highlight then
-    local status_ok, illuminate = pcall(require, "illuassemblyminate")
-    if not status_ok then
-      return
-    end
-    illuminate.on_attach(client)
-  end
-end
-
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -92,7 +81,6 @@ M.on_attach = function(client, bufnr)
     vim.lsp.codelens.refresh()
   end
   lsp_keymaps(bufnr)
-  lsp_highlight_document(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

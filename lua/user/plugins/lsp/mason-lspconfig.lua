@@ -18,7 +18,8 @@ mason_lspconfig.setup_handlers {
     end,
 
     ["rust_analyzer"] = function ()
-        require("rust-tools").setup()
+      local rust_opts = require "user.plugins.lsp.settings.rust"
+      require("rust-tools").setup(rust_opts)
     end,
 
     ["lua_ls"] = function ()
@@ -46,3 +47,4 @@ mason_lspconfig.setup_handlers {
       require("lspconfig").cssmodules_ls.setup(vim.tbl_deep_extend("force", cssmodules_opts, opts))
     end,
 }
+
