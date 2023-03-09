@@ -222,4 +222,4 @@ neo_tree.setup({
   }
 })
 
-vim.cmd([[nnoremap <C-t> :NeoTreeShowToggle<cr>]])
+vim.cmd([[nnoremap <C-t> :Neotree reveal<cr>]])
