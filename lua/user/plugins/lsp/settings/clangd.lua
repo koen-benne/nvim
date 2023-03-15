@@ -1,3 +1,4 @@
 return {
-  cmd = { "clangd", "-std=c99" },
+  --[[ cmd = { "clangd", "-std=gnu17" } ]]
+  cmd = {"clangd"}
 }
