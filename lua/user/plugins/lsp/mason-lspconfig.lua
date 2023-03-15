@@ -22,6 +22,11 @@ mason_lspconfig.setup_handlers {
       require("rust-tools").setup(rust_opts)
     end,
 
+    ["clangd"] = function ()
+      local clangd_opts = require "user.plugins.lsp.settings.clangd"
+      require("lspconfig").clangd.setup(vim.tbl_deep_extend("force", clangd_opts, opts))
+    end,
+
     ["lua_ls"] = function ()
       local lua_ls_opts = require "user.plugins.lsp.settings.lua_ls"
       require("lspconfig").lua_ls.setup(vim.tbl_deep_extend("force", lua_ls_opts, opts))
