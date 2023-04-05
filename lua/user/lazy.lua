@@ -47,6 +47,21 @@ lazy.setup({
     config = get_config("project"),
   },
 
+  {
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").add_default_mappings()
+    end,
+  },
+
+  --[[ { ]]
+  --[[   "phaazon/hop.nvim", ]]
+  --[[   branch = "v2", ]]
+  --[[   config = function() ]]
+  --[[     require("hop").setup() ]]
+  --[[   end, ]]
+  --[[ }, ]]
+
   -- File tree plugin
   --[[ { ]]
   --[[   "kyazdani42/nvim-tree.lua", ]]

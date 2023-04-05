@@ -69,18 +69,18 @@ if vim.g.neovide then
 end
 
 -- Autocommands
-if vim.fn.has "mac" == 0 then
-  vim.cmd [[
-  augroup kitty_mp
-    autocmd!
-    au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=4 &
-    au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 0.7 &
-    au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#0F1410 &
-    au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 &
-    au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 1 &
-    au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#1a1b26 &
-  ]]
-end
+-- if vim.fn.has "mac" == 0 then
+--   vim.cmd [[
+--   augroup kitty_mp
+--     autocmd!
+--     au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=4 &
+--     au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 0.7 &
+--     au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#0F1410 &
+--     au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 &
+--     au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 1 &
+--     au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#1a1b26 &
+--   ]]
+-- end
 
 vim.cmd [[
 augroup numbertoggle
