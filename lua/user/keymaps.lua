@@ -99,9 +99,10 @@ setKeymap("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 -- Gitsigns --
 setKeymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
 
--- Lazygit --
+-- Terminal --
 -- TODO: change exit insert mode keymap when in this window (also nice for terminal)
 setKeymap("n", "<leader>lg", ":lua _LAZYGIT_TOGGLE()<CR>")
+setKeymap("n", "<leader>bc", ":lua _BACON_TOGGLE()<CR>")
 
 -- Neovide keymaps
 if vim.g.neovide then
