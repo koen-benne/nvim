@@ -11,7 +11,7 @@ end
 local status_comment_ok, comment = pcall(require, "comment")
 
 copilot.setup {
-  --[[ copilot_node_command = "/home/koen/.asdf/install/nodejs/19.2.0/bin/node", ]]
+  copilot_node_command = "/home/koen/.asdf/installs/nodejs/19.2.0/bin/node",
   suggestion = {
     auto_trigger = true,
   },
