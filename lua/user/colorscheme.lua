@@ -3,7 +3,7 @@ local colorscheme = "tokyonight"
 
 local status_ok, cs = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-  vim.lsp.buf.formatting() vim.notify("Colorscheme " .. colorscheme .. " not found!")
+  vim.notify("Colorscheme " .. colorscheme .. " not found!")
   return
 end
 
