@@ -80,6 +80,8 @@ setKeymap("", "<Leader>gi", ":lua require'telescope.builtin'.git_files{}<CR>")
 setKeymap("", "<Leader>sf", ":lua require'telescope.builtin'.find_files{}<CR>")
 -- ripgrep like grep through dir
 setKeymap("", "<Leader>rg", ":lua require'telescope.builtin'.live_grep{}<CR>")
+-- ripgrep but with hidden files
+setKeymap("", "<Leader>ga", ":lua require'telescope.builtin'.live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '-u', '--hidden' } }<CR>")
 -- pick color scheme
 setKeymap("", "<Leader>cs", ":lua require'telescope.builtin'.colorscheme{}<CR>")
 

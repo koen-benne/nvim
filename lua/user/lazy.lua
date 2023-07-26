@@ -85,6 +85,10 @@ lazy.setup({
   },
 
   {
+    "wakatime/vim-wakatime",
+  },
+
+  {
     "dstein64/vim-startuptime",
     cmd = "StartupTime",
   }, -- For testing startup time
