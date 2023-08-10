@@ -36,8 +36,8 @@ dap.configurations.typescriptreact = {
         sourceMaps = true,
         -- reAttach = true,
         -- protocol = "inspector",
-        -- hostName = "127.0.0.1"
-        port = 9222,
+        hostName = "localhost",
+        port = 3000,
         webRoot = "${workspaceFolder}"
     },
 }
