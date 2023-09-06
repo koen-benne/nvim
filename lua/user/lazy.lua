@@ -35,6 +35,11 @@ lazy.setup({
     priority = 1000,
   },
 
+  -- Libraries
+  "kevinhwang91/promise-async", -- Some plugins need this
+  "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
+  "nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
+
   -- Start screen
   {
     "goolord/alpha-nvim",
@@ -53,25 +58,6 @@ lazy.setup({
       require("leap").add_default_mappings()
     end,
   },
-
-  --[[ { ]]
-  --[[   "phaazon/hop.nvim", ]]
-  --[[   branch = "v2", ]]
-  --[[   config = function() ]]
-  --[[     require("hop").setup() ]]
-  --[[   end, ]]
-  --[[ }, ]]
-
-  -- File tree plugin
-  --[[ { ]]
-  --[[   "kyazdani42/nvim-tree.lua", ]]
-  --[[   keys = { ]]
-  --[[     { "<C-t>", ":NvimTreeToggle<CR>", desc = "NvimTree" } ]]
-  --[[   }, ]]
-  --[[   config = get_config("nvim-tree"), ]]
-  --[[   enabled = false, ]]
-  --[[ }, ]]
-
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = {
@@ -93,8 +79,6 @@ lazy.setup({
     cmd = "StartupTime",
   }, -- For testing startup time
 
-  "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
-  "nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
   {
     "kyazdani42/nvim-web-devicons",
     config = get_config("nvim-web-devicons"),
@@ -111,7 +95,6 @@ lazy.setup({
     "RRethy/vim-illuminate",
     config = get_config("illuminate"),
   }, -- Highlight current word and other occurences
-  "kevinhwang91/promise-async", -- Some plugins need this
 
   {
     "folke/which-key.nvim",
@@ -130,6 +113,28 @@ lazy.setup({
   -- Harpoon
   "ThePrimeagen/harpoon",
 
+  -- Neorg epicness
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/notes",
+              },
+            },
+          },
+        },
+      }
+    end,
+  },
+
   -- Auto stuff
   {
     "windwp/nvim-autopairs",
@@ -144,6 +149,7 @@ lazy.setup({
   }, -- One of the best plugins ever
   "nvim-telescope/telescope-media-files.nvim",
   "nvim-telescope/telescope-file-browser.nvim",
+
   {
     "akinsho/bufferline.nvim",
     dependencies = "kyazdani42/nvim-web-devicons",
@@ -158,11 +164,8 @@ lazy.setup({
 
   -- Git stuff
   {
-  {
     "lewis6991/gitsigns.nvim",
     config = get_config("gitsigns"),
-  },
-  -- tag = 'release' -- To the latest release
   },
 
   -- LSP tingz

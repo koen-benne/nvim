@@ -88,6 +88,14 @@ setKeymap("", "<Leader>cs", ":lua require'telescope.builtin'.colorscheme{}<CR>")
 -- NVIM Tree --
 --[[ setKeymap("n", "<C-t>", ":NvimTreeToggle<CR>") ]]
 
+-- UFO --
+setKeymap("n", "zP", function()
+  local winid = require("ufo").peekFoldedLinesUnderCursor()
+  if not winid then
+    vim.lsp.buf.hover()
+  end
+end)
+
 -- Debugging --
 setKeymap("n", "<F5>", ":lua require'dap'.continue()<CR>")
 setKeymap("n", "<F10>", ":lua require'dap'.step_over()<CR>")
