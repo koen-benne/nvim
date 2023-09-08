@@ -28,23 +28,36 @@ end
 
 -- Install your plugins here
 lazy.setup({
-  -- Theme
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-  },
-
   -- Libraries
   "kevinhwang91/promise-async", -- Some plugins need this
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
+  {
+    "kyazdani42/nvim-web-devicons",
+    config = get_config("nvim-web-devicons"),
+  },
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+  },
+
+  -- Theme
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  -- },
 
   -- Start screen
   {
     "goolord/alpha-nvim",
     lazy = false,
-    priority = 1000,
+    priority = 999,
     config = get_config("alpha"),
   },
   {
@@ -52,12 +65,15 @@ lazy.setup({
     config = get_config("project"),
   },
 
+  -- Moving throug files with s
   {
     "ggandor/leap.nvim",
     config = function()
       require("leap").add_default_mappings()
     end,
   },
+
+  -- File tree
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = {
@@ -70,32 +86,36 @@ lazy.setup({
     },
   },
 
+  -- For time tracking
   {
     "wakatime/vim-wakatime",
   },
 
+  -- For testing startup time
   {
     "dstein64/vim-startuptime",
     cmd = "StartupTime",
-  }, -- For testing startup time
+  },
 
-  {
-    "kyazdani42/nvim-web-devicons",
-    config = get_config("nvim-web-devicons"),
-  }, -- Necessary for some plugins
+  -- Terminal
   {
     "akinsho/toggleterm.nvim",
     config = get_config("toggleterm")
-  }, -- Terminal
+  },
+
+  -- Session management
   {
     "folke/persistence.nvim",
     config = get_config("persistence"),
-  }, -- Session management
+  },
+
+  -- Highlight currnet word and other occurences
   {
     "RRethy/vim-illuminate",
     config = get_config("illuminate"),
-  }, -- Highlight current word and other occurences
+  },
 
+  -- Key hints
   {
     "folke/which-key.nvim",
     config = function()
@@ -105,15 +125,10 @@ lazy.setup({
     end
   },
 
-  {
-    "stevearc/dressing.nvim",
-    event = "VeryLazy",
-  },
-
   -- Harpoon
   "ThePrimeagen/harpoon",
 
-  -- Neorg epicness
+  -- Neorg notes
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
@@ -128,6 +143,7 @@ lazy.setup({
               workspaces = {
                 notes = "~/notes",
               },
+              default_workspace = "notes",
             },
           },
         },
@@ -150,11 +166,11 @@ lazy.setup({
   "nvim-telescope/telescope-media-files.nvim",
   "nvim-telescope/telescope-file-browser.nvim",
 
-  {
-    "akinsho/bufferline.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
-    config = get_config("bufferline"),
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   dependencies = "kyazdani42/nvim-web-devicons",
+  --   config = get_config("bufferline"),
+  -- },
 
   -- Tab guide
   {
@@ -185,15 +201,14 @@ lazy.setup({
   {
     "simrat39/rust-tools.nvim",
   },
-
   "glepnir/lspsaga.nvim",
+  "onsails/lspkind.nvim",
   "b0o/SchemaStore.nvim",
   "jose-elias-alvarez/null-ls.nvim",
   {
     "zbirenbaum/copilot.lua",
     config = get_config("copilot"),
   },
-  "onsails/lspkind.nvim",
 
   -- Autocompletion
   {
@@ -230,15 +245,17 @@ lazy.setup({
     config = get_config("treesitter"),
   },
 
+  -- Better folding
   {
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
     config = get_config("ufo"),
   },
 
+  -- Sytnax aware text-objects
   "nvim-treesitter/nvim-treesitter-textobjects",
 
-  -- Bottom bar
+  -- Statusline
   {"nvim-lualine/lualine.nvim", config = get_config("lualine")},
 
   -- Tags
@@ -254,13 +271,11 @@ lazy.setup({
   -- So that I can see where whitespaces are
   "ntpeters/vim-better-whitespace",
 
-  -- Should check these
+  -- Dont know if i need this
   "tpope/vim-ragtag",
-  "tpope/vim-unimpaired",
-
   "tpope/vim-eunuch",
-  "tpope/vim-fugitive",
 
+  -- Shows Colors of hex codes etc.
   {
     "norcalli/nvim-colorizer.lua",
     config = get_config("nvim-colorizer"),
@@ -271,7 +286,6 @@ lazy.setup({
     "numToStr/Comment.nvim",
     config = get_config("comment")
   },
-  "JoosepAlviste/nvim-ts-context-commentstring",
 
   -- Editorconfig
   "gpanders/editorconfig.nvim",

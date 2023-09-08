@@ -31,6 +31,7 @@ local options = {
     cursorline = true,
     pumblend = 10,
     winblend = 10,
+    conceallevel = 2,
 }
 
 vim.opt.shortmess:append "c"
@@ -68,20 +69,6 @@ if vim.g.neovide then
   end
 end
 
--- Autocommands
--- if vim.fn.has "mac" == 0 then
---   vim.cmd [[
---   augroup kitty_mp
---     autocmd!
---     au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=4 &
---     au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 0.7 &
---     au VimLeave * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#0F1410 &
---     au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 &
---     au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-background-opacity 1 &
---     au VimEnter * :silent !kitty @ --to=$KITTY_LISTEN_ON set-colors background=\#1a1b26 &
---   ]]
--- end
-
 vim.cmd [[
 augroup numbertoggle
   autocmd!
@@ -89,12 +76,3 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave  * if &nu                  | set nornu | endif
 ]]
 
-vim.cmd [[
-augroup folds
-" Don't screw up folds when inserting text that might affect them, until
-" leaving insert mode. Foldmethod is local to the window. Protect against
-" screwing up folding when switching between windows.
-autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-augroup END
-]]
