@@ -1,6 +1,5 @@
 -- local colorscheme = "tokyonight"
 local colorscheme = "kanagawa"
--- local colorscheme = "everblush"
 
 local status_ok, cs = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
@@ -9,5 +8,3 @@ if not status_ok then
 end
 
 pcall(require, "user.plugins." .. colorscheme)
-
-vim.cmd[[colorscheme kanagawa]]
