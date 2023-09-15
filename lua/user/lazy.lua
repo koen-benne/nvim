@@ -243,6 +243,9 @@ lazy.setup({
     "nvim-treesitter/nvim-treesitter",
     build = ':TSUpdate',
     config = get_config("treesitter"),
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
   },
 
   -- Better folding
