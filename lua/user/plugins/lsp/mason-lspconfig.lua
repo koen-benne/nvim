@@ -4,7 +4,16 @@ if not status_lsp then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "lua_ls" },
+  ensure_installed = {
+    "lua_ls",
+    "jsonls",
+    "rust_analyzer",
+    "cssmodules_ls",
+    "cssls",
+    "html",
+    "clangd",
+    "tsserver",
+  },
 }
 
 local opts = {

@@ -38,4 +38,9 @@ configs.setup {
   },
 }
 
-require('nvim-ts-context-commentstring').setup()
+local status_ok, commentstring = pcall(require, "ts-context-commentstring")
+if not status_ok then
+  return
+end
+
+commentstring.setup()
