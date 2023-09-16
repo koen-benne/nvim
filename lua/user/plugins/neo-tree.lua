@@ -19,7 +19,16 @@ vim.fn.sign_define("DiagnosticSignHint",
 
 neo_tree.setup({
   close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
-  popup_border_style = "rounded",
+  popup_border_style = {
+    {" ", "FloatBorder"},
+    {" ", "FloatBorder"},
+    {" ", "FloatBorder"},
+    {" ", "FloatBorder"},
+    {" ", "FloatBorder"},
+    {" ", "FloatBorder"},
+    {" ", "FloatBorder"},
+    {" ", "FloatBorder"},
+  },
   enable_git_status = true,
   enable_diagnostics = true,
   sort_case_insensitive = false, -- used when sorting files and directories in the tree
@@ -52,7 +61,7 @@ neo_tree.setup({
     icon = {
       folder_closed = "",
       folder_open = "",
-      folder_empty = "ﰊ",
+      folder_empty = "",
       -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
       -- then these will never be used.
       default = "*",
@@ -76,9 +85,9 @@ neo_tree.setup({
         renamed   = "",-- this can only be used in the git_status source
         -- Status type
         untracked = "",
-        ignored   = "",
-        unstaged  = "",
-        staged    = "",
+        ignored   = "",
+        unstaged  = "",
+        staged    = "✚",
         conflict  = "",
       }
     },

@@ -20,7 +20,7 @@ telescope.setup {
       "--column",
       "--smart-case",
     },
-    prompt_prefix = icons.ui.Telescope .. " ",
+    prompt_prefix = icons.ui.Search .. " ",
     selection_caret = icons.ui.ChevronRight .. " ",
     path_display = { "smart" },
     initial_mode = "insert",
@@ -29,7 +29,7 @@ telescope.setup {
     layout_strategy = "horizontal",
     file_ignore_patterns = { "node_modules" },
     border = {},
-    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
     set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
     color_devicons = true,
     layout_config = {

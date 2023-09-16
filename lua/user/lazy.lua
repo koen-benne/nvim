@@ -30,7 +30,6 @@ end
 lazy.setup({
   -- Libraries
   "kevinhwang91/promise-async", -- Some plugins need this
-  "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
   {
     "kyazdani42/nvim-web-devicons",
