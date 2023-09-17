@@ -163,9 +163,14 @@ cmp.setup {
       name = "buffer",
       group_index = 2,
       filter = function(entry, ctx)
-        if not contains(buffer_fts, ctx.prev_context.filetype) then
-          return true
+        local found = false
+        for _, value in ipairs(buffer_fts) do
+            if value == ctx.prev_context.filetype then
+              found = true
+              break
+            end
         end
+        return found
       end,
     },
     { name = "cmp_tabnine", group_index = 2 },

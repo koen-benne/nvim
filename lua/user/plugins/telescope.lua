@@ -21,7 +21,7 @@ telescope.setup {
       "--smart-case",
     },
     prompt_prefix = icons.ui.Search .. " ",
-    selection_caret = icons.ui.ChevronRight .. " ",
+    selection_caret = "  ",
     path_display = { "smart" },
     initial_mode = "insert",
     election_strategy = "reset",

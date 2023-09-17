@@ -23,7 +23,7 @@ fg_bg("TelescopePreviewTitle", "#000000", "#7e9cd8")
 fg_bg("TelescopePromptTitle", "#000000", "#957fb8")
 fg_bg("TelescopeResultsTitle", "#15151e","#15151e")
 
-bg("TelescopeSelection", "b1a1b26")
+bg("TelescopeSelection", "#3b323e")
 
 -- Neo tree
 bg("NeoTreeNormal", "#15151e")
