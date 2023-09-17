@@ -16,13 +16,18 @@ toggleterm.setup({
 	direction = "horizontal",
 	close_on_exit = true,
 	shell = vim.o.shell,
+  highlights = {
+    NormalFloat = {
+      guibg = "#15151e",
+    },
+    FloatBorder = {
+      guibg = "#15151e",
+      guifg = "#15151e",
+    },
+  },
 	float_opts = {
-		border = "curved",
+		border = { " ", " " },
 		winblend = 8,
-		highlights = {
-			border = "Normal",
-			background = "Normal",
-		},
 	},
 })
 

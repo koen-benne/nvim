@@ -6,7 +6,6 @@ local function bg(group, guibg)
   vim.cmd('hi ' .. group .. ' guibg=' .. guibg)
 end
 
-
 -- Telescope
 fg_bg("TelescopeBorder", "#15151e", "#15151e")
 fg_bg("TelescopePromptBorder", "#1a1b26", "#1a1b26")
@@ -26,6 +25,7 @@ fg_bg("TelescopeResultsTitle", "#15151e","#15151e")
 
 bg("TelescopeSelection", "b1a1b26")
 
+-- Neo tree
 bg("NeoTreeNormal", "#15151e")
 bg("NeoTreeFloatBorder", "#15151e")
 fg_bg("NeoTreeFloatTitle", "#000000", "#957fb8")

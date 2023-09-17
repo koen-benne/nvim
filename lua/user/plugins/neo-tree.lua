@@ -17,18 +17,11 @@ vim.fn.sign_define("DiagnosticSignHint",
 -- NOTE: this is changed from v1.x, which used the old style of highlight groups
 -- in the form "LspDiagnosticsSignWarning"
 
+local no_border = { " ", " " }
+
 neo_tree.setup({
   close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
-  popup_border_style = {
-    {" ", "FloatBorder"},
-    {" ", "FloatBorder"},
-    {" ", "FloatBorder"},
-    {" ", "FloatBorder"},
-    {" ", "FloatBorder"},
-    {" ", "FloatBorder"},
-    {" ", "FloatBorder"},
-    {" ", "FloatBorder"},
-  },
+  popup_border_style = no_border,
   enable_git_status = true,
   enable_diagnostics = true,
   sort_case_insensitive = false, -- used when sorting files and directories in the tree
