@@ -174,6 +174,7 @@ lazy.setup({
   -- Tab guide
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     config = get_config("indent-blankline"),
   },
 
