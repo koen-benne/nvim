@@ -48,6 +48,12 @@ function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
 
+local gitui = Terminal:new({ cmd = "gitui", hidden = true, direction = "float" })
+
+function _GITUI_TOGGLE()
+  gitui:toggle()
+end
+
 local bacon = Terminal:new({ cmd = "bacon", hidden = true, direction = "vertical", size = 50 })
 
 function _BACON_TOGGLE()
@@ -66,10 +72,10 @@ function _NCDU_TOGGLE()
 	ncdu:toggle()
 end
 
-local htop = Terminal:new({ cmd = "htop", hidden = true })
+local btop = Terminal:new({ cmd = "btop", hidden = true })
 
-function _HTOP_TOGGLE()
-	htop:toggle()
+function _BTOP_TOGGLE()
+	btop:toggle()
 end
 
 local python = Terminal:new({ cmd = "python", hidden = true })
