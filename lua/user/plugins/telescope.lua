@@ -126,16 +126,10 @@ telescope.setup {
   extensions = {
     media_files = {
       -- filetypes whitelist
-      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-      filetypes = { "png", "webp", "jpg", "jpeg" },
-      find_cmd = "rg", -- find command (defaults to `fd`)
+      filetypes = { "png", "webp", "jpg", "jpeg", "mp4", "webm", "pdf", "mkv" },
+      find_cmd = "fd",
     },
     file_browser = {
-      -- theme = "ivy",
-      -- require("telescope.themes").get_dropdown {
-      --   previewer = false,
-      --   -- even more opts
-      -- },
       mappings = {
         ["i"] = {
           -- your custom insert mode mappings
@@ -145,17 +139,11 @@ telescope.setup {
         },
       },
     },
-    -- ["ui-select"] = {
-    --   require("telescope.themes").get_dropdown {
-    --     previewer = false,
-    --     -- even more opts
-    --   },
-    -- },
   },
 }
 
--- telescope.load_extension "ui-select"
 -- TODO: check if these exist first
 telescope.load_extension "file_browser"
 telescope.load_extension "projects"
 telescope.load_extension "harpoon"
+telescope.load_extension "undo"

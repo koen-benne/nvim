@@ -1,8 +1,3 @@
-local opts = { noremap = true, silent = true }
-
-local term_opts = { silent = true }
-
-local keymap = vim.api.nvim_set_keymap
 local setKeymap = vim.keymap.set
 
 -- Make space leader key
@@ -84,6 +79,12 @@ setKeymap("", "<Leader>rg", ":lua require'telescope.builtin'.live_grep{}<CR>")
 setKeymap("", "<Leader>ga", ":lua require'telescope.builtin'.live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '-u', '--hidden' } }<CR>")
 -- pick color scheme
 setKeymap("", "<Leader>cs", ":lua require'telescope.builtin'.colorscheme{}<CR>")
+-- undo history
+setKeymap("n", "<Leader>u", ":Telescope undo<CR>")
+-- Harpoon keymaps
+setKeymap("n", "<leader>mk", ":lua require'harpoon.mark'.add_file()<CR>")
+--[[ setKeymap("n", "<leader>hr", ":lua require'harpoon.ui'.toggle_quick_menu()<CR>") ]]
+setKeymap("n", "<leader>hr", ":Telescope harpoon marks<CR>")
 
 -- NVIM Tree --
 --[[ setKeymap("n", "<C-t>", ":NvimTreeToggle<CR>") ]]
@@ -136,7 +137,3 @@ if vim.g.neovide then
   setKeymap("n", "_", ":lua ChangeScaleFactor(1/1.25)<CR>")
 end
 
--- Harpoon keymaps
-setKeymap("n", "<leader>mk", ":lua require'harpoon.mark'.add_file()<CR>")
---[[ setKeymap("n", "<leader>hr", ":lua require'harpoon.ui'.toggle_quick_menu()<CR>") ]]
-setKeymap("n", "<leader>hr", ":Telescope harpoon marks<CR>")

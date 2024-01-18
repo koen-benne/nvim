@@ -160,10 +160,13 @@ lazy.setup({
   -- Telescope
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-media-files.nvim",
+      "nvim-telescope/telescope-file-browser.nvim",
+      "debugloop/telescope-undo.nvim",
+    },
     config = get_config("telescope"),
   }, -- One of the best plugins ever
-  "nvim-telescope/telescope-media-files.nvim",
-  "nvim-telescope/telescope-file-browser.nvim",
 
   -- {
   --   "akinsho/bufferline.nvim",
@@ -220,9 +223,6 @@ lazy.setup({
     config = function()
       require("chatgpt").setup({
         api_key_cmd = "pass show api/tokens/openai",
-        openai_params = {
-          model = "gpt-3.5-turbo",
-        },
       })
     end,
   },
