@@ -140,9 +140,11 @@ lazy.setup({
           ["core.dirman"] = { -- Manages Neorg workspaces
             config = {
               workspaces = {
-                notes = "~/notes",
+                personal = "~/notes/personal",
+                work = "~/notes/work",
+                stage = '~/notes/stage'
               },
-              default_workspace = "notes",
+              default_workspace = "personal",
             },
           },
         },
