@@ -139,6 +139,8 @@ lazy.setup({
           ["core.concealer"] = {}, -- Adds pretty icons to your documents
           ["core.summary"] = {},
           ["core.journal"] = {},
+          -- gotta get nightly working for this for now
+          -- ["core.ui.calendar"] = {},
           ["core.completion"] = {
             config = {
               engine = "nvim-cmp"
@@ -151,7 +153,7 @@ lazy.setup({
                 work = "~/notes/work",
                 stage = '~/notes/stage'
               },
-              default_workspace = "personal",
+              default_workspace = "stage",
             },
           },
         },
