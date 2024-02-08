@@ -199,5 +199,5 @@ vim.api.nvim_create_autocmd("User", {
 vim.api.nvim_create_autocmd("User", {
     group = "alpha_tabline",
     pattern = "AlphaClosed",
-    command = "set showtabline=2 laststatus=3"
+    command = "set showtabline=1 laststatus=3"
 })
