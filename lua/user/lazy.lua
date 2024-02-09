@@ -139,8 +139,7 @@ lazy.setup({
           ["core.concealer"] = {}, -- Adds pretty icons to your documents
           ["core.summary"] = {},
           ["core.journal"] = {},
-          -- gotta get nightly working for this for now
-          -- ["core.ui.calendar"] = {},
+          ["core.ui.calendar"] = {},
           ["core.completion"] = {
             config = {
               engine = "nvim-cmp"
@@ -159,6 +158,11 @@ lazy.setup({
         },
       }
     end,
+  },
+
+  {
+    "3rd/image.nvim",
+    config = get_config("image"),
   },
 
   -- Auto stuff
