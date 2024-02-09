@@ -308,7 +308,10 @@ lazy.setup({
   "tpope/vim-surround",
 
   -- So that I can see where whitespaces are
-  "ntpeters/vim-better-whitespace",
+  {
+    "johnfrankmorgan/whitespace.nvim",
+    config = get_config("whitespace"),
+  },
 
   -- Dont know if i need this
   "tpope/vim-ragtag",
