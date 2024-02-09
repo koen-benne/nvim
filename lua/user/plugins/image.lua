@@ -3,9 +3,12 @@ if not ok then
   return
 end
 
+-- Check if we are on a mac
+local is_mac = vim.loop.os_uname().sysname == "Darwin"
+
 -- default config
 image.setup({
-  backend = "kitty",
+  backend = is_mac and "kitty" or "ueberzug",
   integrations = {
     markdown = {
       enabled = true,
