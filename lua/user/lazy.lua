@@ -162,6 +162,10 @@ lazy.setup({
 
   {
     "3rd/image.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
     config = get_config("image"),
   },
 
