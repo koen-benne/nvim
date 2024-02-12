@@ -7,14 +7,12 @@ require('telescope').load_extension('dap')
 
 dap.adapters.php = {
     type = 'executable',
-    -- command = vim.fn.expand("$HOME") .. "/.asdf/installs/nodejs/19.2.0/bin/node",
-    command = "bash",
+    command = "node",
     args = {os.getenv("HOME") .. "/.local/share/nvim/mason/bin/php-debug-adapter"},
 }
 dap.adapters.chrome = {
     type = 'executable',
-    -- command = vim.fn.expand("$HOME") .. "/.asdf/installs/nodejs/19.2.0/bin/node",
-    command = "bash",
+    command = "node",
     args = {os.getenv("HOME") .. "/.local/share/nvim/mason/bin/chrome-debug-adapter"},
 }
 
@@ -24,6 +22,9 @@ dap.configurations.php = {
         request = 'launch',
         name = 'Listen for xdebug',
         port = '9003',
+        pathMappings = {
+          ["/var/www/html"] = "${workspaceFolder}"
+        }
     },
 }
 dap.configurations.typescriptreact = {
