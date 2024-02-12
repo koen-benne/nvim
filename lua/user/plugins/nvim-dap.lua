@@ -7,7 +7,7 @@ require('telescope').load_extension('dap')
 
 dap.adapters.php = {
     type = 'executable',
-    command = "node",
+    command = "bash",
     args = {os.getenv("HOME") .. "/.local/share/nvim/mason/bin/php-debug-adapter"},
 }
 dap.adapters.chrome = {
@@ -20,12 +20,12 @@ dap.configurations.php = {
     {
         type = 'php',
         request = 'launch',
-        name = 'Listen for xdebug',
+        name = 'Listen for Xdebug',
         port = '9003',
         pathMappings = {
           ["/var/www/html"] = "${workspaceFolder}"
         }
-    },
+    }
 }
 dap.configurations.typescriptreact = {
     {
@@ -40,7 +40,7 @@ dap.configurations.typescriptreact = {
         hostName = "localhost",
         port = 3000,
         webRoot = "${workspaceFolder}"
-    },
+    }
 }
 
 require("nvim-dap-virtual-text").setup()
