@@ -103,7 +103,7 @@ setKeymap("n", "<F10>", ":lua require'dap'.step_over()<CR>")
 setKeymap("n", "<F11>", ":lua require'dap'.step_into()<CR>")
 setKeymap("n", "<F12>", ":lua require'dap'.step_out()<CR>")
 setKeymap("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
-setKeymap("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.input('Breakpoint condition: '))<CR>")
+setKeymap("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
 setKeymap("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
 setKeymap("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
@@ -121,15 +121,16 @@ vim.keymap.set('n', '<Leader>ds', function()
   local widgets = require('dap.ui.widgets')
   widgets.centered_float(widgets.scopes)
 end)
+setKeymap("n", "<leader>do", ":lua require'dapui'.toggle()<CR>")
 
 -- Gitsigns --
 setKeymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
 
 -- Terminal --
 -- TODO: change exit insert mode keymap when in this window (also nice for terminal)
-setKeymap("n", "<leader>lg", ":lua _LAZYGIT_TOGGLE()<CR>")
-setKeymap("n", "<leader>gu", ":lua _GITUI_TOGGLE()<CR>")
-setKeymap("n", "<leader>bc", ":lua _BACON_TOGGLE()<CR>")
+-- setKeymap("n", "<leader>lg", ":lua _LAZYGIT_TOGGLE()<CR>")
+-- setKeymap("n", "<leader>gu", ":lua _GITUI_TOGGLE()<CR>")
+-- setKeymap("n", "<leader>bc", ":lua _BACON_TOGGLE()<CR>")
 
 -- Neovide keymaps
 if vim.g.neovide then
